@@ -4,13 +4,15 @@ public class Client {
 	private String nom;
 	private String cognoms;
 	private String dni;
+	private String contrasenya;
 	private String adreça;
 	private Pagament pagamentPredeterminat;
 
-	public Client(String nom, String cognoms, String dni) {
+	public Client(String nom, String cognoms, String dni, String contrasenya) {
 		this.nom = nom;
 		this.cognoms = cognoms;
 		this.dni = dni;
+		this.setContrasenya(contrasenya);
 	}
 
 	/**
@@ -93,15 +95,27 @@ public class Client {
 	 * 
 	 * @see java.lang.Object#toString()
 	 */
+
+	/**
+	 * @return the contrasenya
+	 */
+	public String getContrasenya() {
+		return contrasenya;
+	}
+
+	/**
+	 * @param contrasenya
+	 *            the contrasenya to set
+	 */
+	public void setContrasenya(String contrasenya) {
+		this.contrasenya = contrasenya;
+	}
+
 	@Override
 	public String toString() {
 		return "Client [nom=" + nom + ", cognoms=" + cognoms + ", dni=" + dni
 				+ ", adreça=" + adreça + ", pagamentPredeterminat="
 				+ pagamentPredeterminat + "]";
-	}
-
-	public void realitzaComanda() {
-		Comanda comandaNova = new Comanda();
 	}
 
 }
