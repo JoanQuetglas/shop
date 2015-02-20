@@ -3,7 +3,12 @@ package classe;
 public class Comanda {
 	private String adreçaEnvio;
 	private Client client;
-	private Pagament tipus;
+	private Model model;
+	private Pagament tipusPagament;
 	
+	
+	public Comanda(){
+		
+	}
 
 }
