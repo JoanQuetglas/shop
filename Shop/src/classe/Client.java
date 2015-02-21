@@ -12,7 +12,7 @@ public class Client {
 		this.nom = nom;
 		this.cognoms = cognoms;
 		this.dni = dni;
-		this.setContrasenya(contrasenya);
+		this.contrasenya=contrasenya;
 	}
 
 	/**
@@ -116,6 +116,10 @@ public class Client {
 		return "Client [nom=" + nom + ", cognoms=" + cognoms + ", dni=" + dni
 				+ ", adreça=" + adreça + ", pagamentPredeterminat="
 				+ pagamentPredeterminat + "]";
+	}
+	
+	public void afegirPagament(){
+		
 	}
 
 }
