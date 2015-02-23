@@ -1,24 +1,27 @@
 package classe;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 
-import utilitats.Coa;
-
 public class Gestor {
-	private Coa<Comanda> comandesPendents;
-	private Coa<Comanda> comandesAturades;
+	private ArrayDeque<Comanda> comandesPendents;
+	private ArrayDeque<Comanda> comandesAturades;
+	private ArrayDeque<Empleat> empleatsLliures;
 	private ArrayList<Comanda> comandes;
 	private ArrayList<Client> llistaClients;
+	private ArrayList<Empleat> llistaEmpleats;
 
 	public Gestor() {
-		Coa<Comanda> comandesPendents= new Coa<Comanda>();
-		Coa<Comanda> comandesAturades= new Coa<Comanda>();
+		ArrayDeque<Comanda> comandesPendents= new ArrayDeque<Comanda>();
+		ArrayDeque<Comanda> comandesAturades= new ArrayDeque<Comanda>();
+		ArrayDeque<Empleat> empleatsLliures= new ArrayDeque<Empleat>();
 		ArrayList<Comanda> comandes= new ArrayList<Comanda>();
 		ArrayList<Client> llistaClients=new ArrayList<Client>();
+		ArrayList<Empleat> llistaEmpleats= new ArrayList<Empleat>();
 	}
 	
 	/**
-	 *Crea un nou client si el dni inserit no coincideix amb cap dni dels clients introduits
+	 *Crea un nou client si el dni inserit no coincideix amb cap dni dels clients introduits anteriorment
 	 * @param nom
 	 * @param cognoms
 	 * @param dni

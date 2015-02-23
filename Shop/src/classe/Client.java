@@ -1,5 +1,7 @@
 package classe;
 
+import utilitats.TipusPagaments;
+
 public class Client {
 	private String nom;
 	private String cognoms;
@@ -118,8 +120,18 @@ public class Client {
 				+ pagamentPredeterminat + "]";
 	}
 	
-	public void afegirPagament(){
-		
+	public void afegirPagament(TipusPagaments tipus){
+		Pagament nouPagament=new Pagament();
 	}
+	
+	public void afegirPagament(TipusPagaments tipus, int numeroTargeta, int codiSeguretat, int dataExpiracio, String propietari){
+		Pagament nouPagament=new Pagament();
+	}
+	
+	public void afegirPagament(TipusPagaments tipus, int numeroTargeta){
+		Pagament nouPagament=new Pagament();
+	}
+	
+	
 
 }
