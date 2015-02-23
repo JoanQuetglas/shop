@@ -75,11 +75,6 @@ public class Comanda {
 		this.tipusPagament = tipusPagament;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Comanda [adreçaEnvio=" + adreçaEnvio + ", client=" + client

@@ -49,12 +49,7 @@ public class Model {
 	public void setPreu(int preu) {
 		this.preu = preu;
 	}
-	
-	
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Model [llistaPeces=" + llistaPeces + ", nom=" + nom + ", preu="

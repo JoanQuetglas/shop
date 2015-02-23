@@ -14,7 +14,7 @@ public class Client {
 		this.nom = nom;
 		this.cognoms = cognoms;
 		this.dni = dni;
-		this.contrasenya=contrasenya;
+		this.contrasenya = contrasenya;
 	}
 
 	/**
@@ -92,12 +92,6 @@ public class Client {
 		this.pagamentPredeterminat = pagamentPredeterminat;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-
 	/**
 	 * @return the contrasenya
 	 */
@@ -119,19 +113,18 @@ public class Client {
 				+ ", adreça=" + adreça + ", pagamentPredeterminat="
 				+ pagamentPredeterminat + "]";
 	}
-	
-	public void afegirPagament(TipusPagaments tipus){
-		Pagament nouPagament=new Pagament();
+
+	public void afegirPagament(TipusPagaments tipus) {
+		Pagament nouPagament = new Pagament();
 	}
-	
-	public void afegirPagament(TipusPagaments tipus, int numeroTargeta, int codiSeguretat, int dataExpiracio, String propietari){
-		Pagament nouPagament=new Pagament();
+
+	public void afegirPagament(TipusPagaments tipus, int numeroTargeta,
+			int codiSeguretat, int dataExpiracio, String propietari) {
+		Pagament nouPagament = new Pagament();
 	}
-	
-	public void afegirPagament(TipusPagaments tipus, int numeroTargeta){
-		Pagament nouPagament=new Pagament();
+
+	public void afegirPagament(TipusPagaments tipus, int numeroTargeta) {
+		Pagament nouPagament = new Pagament();
 	}
-	
-	
 
 }
