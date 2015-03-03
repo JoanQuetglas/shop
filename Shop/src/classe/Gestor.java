@@ -88,7 +88,7 @@ public class Gestor {
 		return true;
 }
 	/**
-	 * Inserirem un boolea
+	 * Inserirem un boolea per saber l'estat de l'empleat
 	 * @param disp
 	 * @param dni
 	 * @return
