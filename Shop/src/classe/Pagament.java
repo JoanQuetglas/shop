@@ -68,16 +68,53 @@ public class Pagament {
 	}
 
 	
-	public Pagament(int visaCodi, int visaDataExpiracio , int visaNumTargeta , String visaPropietari, TipusPagaments tipus ) {
-		this.visaCodi = visaCodi;
-		this.visaDataExpiracio = visaDataExpiracio;
-		this.visaNumTargeta = visaNumTargeta;
-		this.visaPropietari = visaPropietari;
+	
+	
+	/**
+	 * @param tipus
+	 * @param visaPropietari
+	 * @param visaCodi
+	 * @param visaNumTargeta
+	 * @param visaDataExpiracio
+	 */
+	public Pagament(TipusPagaments tipus, String visaPropietari, int visaCodi,
+			int visaNumTargeta, int visaDataExpiracio) {
+		super();
 		this.tipus = tipus;
+		this.visaPropietari = visaPropietari;
+		this.visaCodi = visaCodi;
+		this.visaNumTargeta = visaNumTargeta;
+		this.visaDataExpiracio = visaDataExpiracio;
+	}
+
+	
+	/**
+	 * @param tipus
+	 */
+	public Pagament(TipusPagaments tipus) {
+		super();
+		this.tipus = tipus;
+	}
+
+	
+	/**
+	 * @param tipus
+	 * @param ppCompta
+	 * @param ppContrasenya
+	 */
+	public Pagament(TipusPagaments tipus, String ppCompta, int ppContrasenya) {
+		super();
+		this.tipus = tipus;
+		this.ppCompta = ppCompta;
+		this.ppContrasenya = ppContrasenya;
 	}
 	
-	public Pagament(TipusPagaments tipus){
-		this.tipus = tipus;
-	}
+	
+	
+	
+
+	
+	
+	
 	
 }
