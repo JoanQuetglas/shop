@@ -3,6 +3,8 @@ package classe;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
+import utilitats.Estat;
+
 public class Gestor {
 	private ArrayDeque<Comanda> comandesPendents;
 	private ArrayDeque<Comanda> comandesAturades;
@@ -60,4 +62,29 @@ public class Gestor {
 		return true;
 	}
 
+	public boolean canviarEstatComanda(int tipus,int id){
+		for(Comanda d: comandes){
+			if(d.getId()==id){
+				switch (tipus){
+				case 1 : 
+					d.setEstat(Estat.PENDENT);
+					return true;
+				case 2 :
+					d.setEstat(Estat.ENPROCES);
+					return true;
+				case 3 : 
+					d.setEstat(Estat.ATURADA);
+					return true;	
+				case 4 :
+					d.setEstat(Estat.FINALITZADA);
+					return true;
+				default :
+					return false;
+				}
+			}else{
+				return false;
+			}
+		}
+		return true;
+}
 }
