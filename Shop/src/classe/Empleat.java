@@ -28,10 +28,10 @@ public class Empleat {
 		return "Empleat [nom=" + nom + ", DNI=" + dni + ", disponibilitat="
 				+ disponibilitat + "]";
 	}
-	public Empleat(String nom, String dni, boolean disponibilitat) {
+	public Empleat(String nom, String dni) {
 		this.nom = nom;
 		this.dni = dni;
-		this.disponibilitat = disponibilitat;
+		this.disponibilitat = true;
 	}
 	
 }

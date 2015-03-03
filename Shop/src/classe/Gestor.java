@@ -23,6 +23,61 @@ public class Gestor {
 		ArrayList<Empleat> llistaEmpleats = new ArrayList<Empleat>();
 	}
 
+	public boolean assignarTreball() {
+		return true;
+	}
+
+	public boolean canviarEstatComanda(Estat tipus, int id) {
+		for (Comanda d : comandes) {
+			if (d.getId() == id) {
+				switch (tipus) {
+				case PENDENT:
+					d.setEstat(Estat.PENDENT);
+					return true;
+				case ENPROCES:
+					d.setEstat(Estat.ENPROCES);
+					return true;
+				case ATURADA:
+					d.setEstat(Estat.ATURADA);
+					return true;
+				case FINALITZADA:
+					d.setEstat(Estat.FINALITZADA);
+					return true;
+				default:
+					return false;
+				}
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * Inserirem un boolea per saber l'estat de l'empleat
+	 * 
+	 * @param disp
+	 * @param dni
+	 * @return
+	 */
+	public boolean canviarEstatEmpleat(boolean disp, String dni) {
+		for (Empleat d : llistaEmpleats) {
+			if (d.getDNI() == dni) {
+				if (disp == true) {
+					d.setDisponibilitat(true);
+					return true;
+				}
+				if (disp == false) {
+					d.setDisponibilitat(false);
+					return true;
+				} else {
+					return false;
+				}
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * Crea un nou client si el dni inserit no coincideix amb cap dni dels
 	 * clients introduits anteriorment
@@ -56,8 +111,19 @@ public class Gestor {
 		return false;
 	}
 
+	public boolean crearEmpleat(String nom, String dni) {
+		Empleat nouEmpleat = new Empleat(nom, dni);
+		for (Empleat a : llistaEmpleats) {
+			if (nouEmpleat.getDNI() != a.getDNI()) {
+				llistaEmpleats.add(nouEmpleat);
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public boolean crearModel(String llistaPeces, String nom, int preu) {
-		Model nouModel=new Model(llistaPeces,nom,preu);
+		Model nouModel = new Model(llistaPeces, nom, preu);
 		for (Model a : cataleg) {
 			if (nouModel.getNom() != a.getNom()) {
 				cataleg.add(nouModel);
@@ -66,57 +132,60 @@ public class Gestor {
 		}
 		return false;
 	}
-
-	public boolean crearEmpleat(){
-		
+	
+	public boolean modificarComanda(){
 		return true;
 	}
 
-	public boolean canviarEstatComanda(Estat tipus,int id){
-		for(Comanda d: comandes){
-			if(d.getId()==id){
-				switch (tipus){
-				case PENDENT : 
-					d.setEstat(Estat.PENDENT);
-					return true;
-				case ENPROCES :
-					d.setEstat(Estat.ENPROCES);
-					return true;
-				case ATURADA : 
-					d.setEstat(Estat.ATURADA);
-					return true;	
-				case FINALITZADA :
-					d.setEstat(Estat.FINALITZADA);
-					return true;
-				default :
-					return false;
-				}
-			}else{
-				return false;
-			}
-		}
-		return true;
-}
 	/**
-	 * Inserirem un boolea per saber l'estat de l'empleat
-	 * @param disp
-	 * @param dni
-	 * @return
+	 * @return the comandesPendents
 	 */
-	public boolean canviarEstatEmpleat(boolean disp, String dni){
-		for(Empleat d : llistaEmpleats){
-			if(d.getDNI()==dni){
-				if(disp==true){
-					d.setDisponibilitat(true);
-					return true;
-				}if(disp==false){
-					d.setDisponibilitat(false);
-					return true;
-				}else{
-					return false;
-				}
-			}
-		}
-		return false;
+	public ArrayDeque<Comanda> getComandesPendents() {
+		return comandesPendents;
 	}
+
+	/**
+	 * @return the comandesAturades
+	 */
+	public ArrayDeque<Comanda> getComandesAturades() {
+		return comandesAturades;
+	}
+
+	/**
+	 * @return the empleatsLliures
+	 */
+	public ArrayDeque<Empleat> getEmpleatsLliures() {
+		return empleatsLliures;
+	}
+
+	/**
+	 * @return the comandes
+	 */
+	public ArrayList<Comanda> getComandes() {
+		return comandes;
+	}
+
+	/**
+	 * @return the llistaClients
+	 */
+	public ArrayList<Client> getLlistaClients() {
+		return llistaClients;
+	}
+
+	/**
+	 * @return the llistaEmpleats
+	 */
+	public ArrayList<Empleat> getLlistaEmpleats() {
+		return llistaEmpleats;
+	}
+
+	/**
+	 * @return the cataleg
+	 */
+	public ArrayList<Model> getCataleg() {
+		return cataleg;
+	}
+	
+	
+
 }
