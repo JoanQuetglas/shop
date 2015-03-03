@@ -50,6 +50,7 @@ public class Gestor {
 		if (contrasenya == client.getContrasenya()) {
 			Comanda novaComanda = new Comanda(client, model);
 			comandesPendents.add(novaComanda);
+			novaComanda.setEstat(Estat.PENDENT);
 			return true;
 		}
 		return false;
@@ -70,20 +71,20 @@ public class Gestor {
 		return true;
 	}
 
-	public boolean canviarEstatComanda(int tipus,int id){
+	public boolean canviarEstatComanda(Estat tipus,int id){
 		for(Comanda d: comandes){
 			if(d.getId()==id){
 				switch (tipus){
-				case 1 : 
+				case PENDENT : 
 					d.setEstat(Estat.PENDENT);
 					return true;
-				case 2 :
+				case ENPROCES :
 					d.setEstat(Estat.ENPROCES);
 					return true;
-				case 3 : 
+				case ATURADA : 
 					d.setEstat(Estat.ATURADA);
 					return true;	
-				case 4 :
+				case FINALITZADA :
 					d.setEstat(Estat.FINALITZADA);
 					return true;
 				default :
