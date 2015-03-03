@@ -97,4 +97,26 @@ public class Gestor {
 		}
 		return true;
 }
+	/**
+	 * Inserirem un boolea per saber l'estat de l'empleat
+	 * @param disp
+	 * @param dni
+	 * @return
+	 */
+	public boolean canviarEstatEmpleat(boolean disp, String dni){
+		for(Empleat d : llistaEmpleats){
+			if(d.getDNI()==dni){
+				if(disp==true){
+					d.setDisponibilitat(true);
+					return true;
+				}if(disp==false){
+					d.setDisponibilitat(false);
+					return true;
+				}else{
+					return false;
+				}
+			}
+		}
+		return false;
+	}
 }
