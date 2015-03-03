@@ -10,6 +10,7 @@ public class Gestor {
 	private ArrayList<Comanda> comandes;
 	private ArrayList<Client> llistaClients;
 	private ArrayList<Empleat> llistaEmpleats;
+	private ArrayList<Model> cataleg;
 
 	public Gestor() {
 		ArrayDeque<Comanda> comandesPendents = new ArrayDeque<Comanda>();
@@ -52,8 +53,15 @@ public class Gestor {
 		return false;
 	}
 
-	public boolean crearModel() {
-		return true;
+	public boolean crearModel(String llistaPeces, String nom, int preu) {
+		Model nouModel=new Model(llistaPeces,nom,preu);
+		for (Model a : cataleg) {
+			if (nouModel.getNom() != a.getNom()) {
+				cataleg.add(nouModel);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean crearEmpleat() {

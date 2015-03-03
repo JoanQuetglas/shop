@@ -4,6 +4,12 @@ public class Model {
 	private String llistaPeces;
 	private String nom;
 	private int preu;
+	
+	public Model(String llistaPeces, String nom, int preu) {
+		this.llistaPeces = llistaPeces;
+		this.nom = nom;
+		this.preu = preu;
+	}
 
 	/**
 	 * @return the llistaPeces
@@ -56,10 +62,6 @@ public class Model {
 				+ preu + "]";
 	}
 
-	public Model(String llistaPeces, String nom, int preu) {
-		this.llistaPeces = llistaPeces;
-		this.nom = nom;
-		this.preu = preu;
-	}
+
 
 }
