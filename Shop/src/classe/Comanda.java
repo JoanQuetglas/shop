@@ -3,6 +3,7 @@ package classe;
 import utilitats.Estat;
 
 public class Comanda {
+	private int id;
 	private String adreçaEnvio;
 	private Client client;
 	private Model model;
