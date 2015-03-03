@@ -10,7 +10,7 @@ public class Pagament {
 	private int visaCodi;
 	private int visaNumTargeta;
 	private int visaDataExpiracio;
-	
+
 	public TipusPagaments getTipus() {
 		return tipus;
 	}
@@ -67,17 +67,17 @@ public class Pagament {
 		this.visaDataExpiracio = visaDataExpiracio;
 	}
 
-	
-	public Pagament(int visaCodi, int visaDataExpiracio , int visaNumTargeta , String visaPropietari, TipusPagaments tipus ) {
+	public Pagament(int visaCodi, int visaDataExpiracio, int visaNumTargeta,
+			String visaPropietari, TipusPagaments tipus) {
 		this.visaCodi = visaCodi;
 		this.visaDataExpiracio = visaDataExpiracio;
 		this.visaNumTargeta = visaNumTargeta;
 		this.visaPropietari = visaPropietari;
 		this.tipus = tipus;
 	}
-	
-	public Pagament(TipusPagaments tipus){
+
+	public Pagament(TipusPagaments tipus) {
 		this.tipus = tipus;
 	}
-	
+
 }

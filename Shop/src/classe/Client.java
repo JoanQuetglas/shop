@@ -115,16 +115,16 @@ public class Client {
 	}
 
 	public void afegirPagament(TipusPagaments tipus) {
-		Pagament nouPagament = new Pagament();
+		Pagament nouPagament = new Pagament(tipus);
 	}
 
-	public void afegirPagament(TipusPagaments tipus, int numeroTargeta,
-			int codiSeguretat, int dataExpiracio, String propietari) {
-		Pagament nouPagament = new Pagament();
+	public void afegirPagament(TipusPagaments tipus,int Codi, int DataExpiracio, int NumTargeta,
+			String Propietari) {
+		Pagament nouPagament = new Pagament(Codi,DataExpiracio,NumTargeta,Propietari,tipus);
 	}
 
-	public void afegirPagament(TipusPagaments tipus, int numeroTargeta) {
-		Pagament nouPagament = new Pagament();
-	}
+	/*public void afegirPagament(TipusPagaments tipus, int numeroTargeta) {
+		Pagament nouPagament = new Pagament(tipus,numeroTargeta);
+	}*/
 
 }

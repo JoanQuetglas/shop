@@ -15,12 +15,12 @@ public class Gestor {
 	private ArrayList<Model> cataleg;
 
 	public Gestor() {
-		ArrayDeque<Comanda> comandesPendents = new ArrayDeque<Comanda>();
-		ArrayDeque<Comanda> comandesAturades = new ArrayDeque<Comanda>();
-		ArrayDeque<Empleat> empleatsLliures = new ArrayDeque<Empleat>();
-		ArrayList<Comanda> comandes = new ArrayList<Comanda>();
-		ArrayList<Client> llistaClients = new ArrayList<Client>();
-		ArrayList<Empleat> llistaEmpleats = new ArrayList<Empleat>();
+		this.comandesPendents = new ArrayDeque<Comanda>();
+		this.comandesAturades = new ArrayDeque<Comanda>();
+		this.empleatsLliures = new ArrayDeque<Empleat>();
+		this.comandes = new ArrayList<Comanda>();
+		this.llistaClients = new ArrayList<Client>();
+		this.llistaEmpleats = new ArrayList<Empleat>();
 	}
 
 	public boolean assignarTreball() {
@@ -114,7 +114,7 @@ public class Gestor {
 	public boolean crearEmpleat(String nom, String dni) {
 		Empleat nouEmpleat = new Empleat(nom, dni);
 		for (Empleat a : llistaEmpleats) {
-			if (nouEmpleat.getDNI() != a.getDNI()) {
+			if (nouEmpleat.getDNI() != a.getDNI() || llistaEmpleats.isEmpty()==true) {
 				llistaEmpleats.add(nouEmpleat);
 				return true;
 			}
@@ -132,8 +132,8 @@ public class Gestor {
 		}
 		return false;
 	}
-	
-	public boolean modificarComanda(){
+
+	public boolean modificarComanda() {
 		return true;
 	}
 
@@ -185,7 +185,5 @@ public class Gestor {
 	public ArrayList<Model> getCataleg() {
 		return cataleg;
 	}
-	
-	
 
 }
