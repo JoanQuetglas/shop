@@ -67,7 +67,8 @@ public class Gestor {
 		return false;
 	}
 
-	public boolean crearEmpleat() {
+	public boolean crearEmpleat(){
+		
 		return true;
 	}
 
