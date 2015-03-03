@@ -14,6 +14,7 @@ public class Comanda {
 	public Comanda(Client client, Model model) {
 		this.client = client;
 		this.model = model;
+		id++;
 	}
 
 	/**

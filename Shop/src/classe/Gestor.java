@@ -12,6 +12,7 @@ public class Gestor {
 	private ArrayList<Comanda> comandes;
 	private ArrayList<Client> llistaClients;
 	private ArrayList<Empleat> llistaEmpleats;
+	private ArrayList<Model> cataleg;
 
 	public Gestor() {
 		ArrayDeque<Comanda> comandesPendents = new ArrayDeque<Comanda>();
@@ -49,33 +50,41 @@ public class Gestor {
 		if (contrasenya == client.getContrasenya()) {
 			Comanda novaComanda = new Comanda(client, model);
 			comandesPendents.add(novaComanda);
+			novaComanda.setEstat(Estat.PENDENT);
 			return true;
 		}
 		return false;
 	}
 
-	public boolean crearModel() {
-		return true;
+	public boolean crearModel(String llistaPeces, String nom, int preu) {
+		Model nouModel=new Model(llistaPeces,nom,preu);
+		for (Model a : cataleg) {
+			if (nouModel.getNom() != a.getNom()) {
+				cataleg.add(nouModel);
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean crearEmpleat() {
 		return true;
 	}
 
-	public boolean canviarEstatComanda(int tipus,int id){
+	public boolean canviarEstatComanda(Estat tipus,int id){
 		for(Comanda d: comandes){
 			if(d.getId()==id){
 				switch (tipus){
-				case 1 : 
+				case PENDENT : 
 					d.setEstat(Estat.PENDENT);
 					return true;
-				case 2 :
+				case ENPROCES :
 					d.setEstat(Estat.ENPROCES);
 					return true;
-				case 3 : 
+				case ATURADA : 
 					d.setEstat(Estat.ATURADA);
 					return true;	
-				case 4 :
+				case FINALITZADA :
 					d.setEstat(Estat.FINALITZADA);
 					return true;
 				default :
