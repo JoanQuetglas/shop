@@ -113,18 +113,42 @@ public class Client {
 				+ ", adreça=" + adreça + ", pagamentPredeterminat="
 				+ pagamentPredeterminat + "]";
 	}
-
+	
+	
+	/**
+	 * Afegir pagament de VISA
+	 * @param tipus
+	 * @param visaPropietari
+	 * @param visaCodi
+	 * @param visaNumTargeta
+	 * @param visaDataExpiracio
+	 */
+	public void afegirPagament(TipusPagaments tipus, String visaPropietari, int visaCodi,
+			int visaNumTargeta, int visaDataExpiracio) {
+		Pagament nouPagament = new Pagament(tipus, visaPropietari, visaCodi,
+				visaNumTargeta, visaDataExpiracio);
+	}
+	
+	/**
+	 * Afegir pagament COMPTE BANCARI
+	 * @param tipus
+	 */
 	public void afegirPagament(TipusPagaments tipus) {
 		Pagament nouPagament = new Pagament(tipus);
 	}
-
-	/*
-	 * public void afegirPagament(TipusPagaments tipus,int Codi, int
-	 * DataExpiracio, int NumTargeta, String Propietari) { Pagament nouPagament
-	 * = new Pagament(Codi,DataExpiracio,NumTargeta,Propietari,tipus); }
-	 * 
-	 * public void afegirPagament(TipusPagaments tipus, int numeroTargeta) {
-	 * Pagament nouPagament = new Pagament(tipus,numeroTargeta); }
+	/**
+	 * Afegir pagament PAYPAL
+	 * @param tipus
+	 * @param ppCompta
+	 * @param ppContrasenya
 	 */
+	public void afegirPagament(TipusPagaments tipus, String ppCompta, int ppContrasenya) {
+		Pagament nouPagament = new Pagament(tipus, ppCompta, ppContrasenya);
+	}
+
+	
+	
+	
+	
 
 }
