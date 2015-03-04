@@ -26,6 +26,19 @@ public class Gestor {
 		idComandes = 0;
 
 	}
+	
+	public void inicialitzacio(){
+		crearClient("Josep", "Morey", "48971680T", "hola");
+		crearClient("Joan","Quetglas","46808932Z","4563");
+		crearEmpleat("Francesc", "59681391Z");
+		crearEmpleat("Toni","47839258S");
+		crearEmpleat("Joan","44335566F");
+		crearEmpleat("Dani", "43523423J");
+		crearModel("Processador Intel core I7,Placa base Asus P5K, Targeta grafica Geforece GTX489", "M095Z", 1700);
+		crearModel("Processador Intel core I5,Placa base Rocket ZS, Targeta grafica Geforece G400", "M090T", 700);
+		crearModel("Processador Intel core I3,Placa base Intel TR, Targeta grafica Geforece G700", "M090S", 760);
+		assignarTreball();
+	}
 
 	/**
 	 * Comprova que mentres hi hagi comandes i treballadors aquests ultims
@@ -258,4 +271,28 @@ public class Gestor {
 		return cataleg;
 	}
 
+	public boolean mostrarComandesSenseAssignar() {
+		if (!comandesPendents.isEmpty() && !comandesAturades.isEmpty()) {
+			getComandesPendents();
+			getComandesAturades();
+			return true;
+		} else if (comandesPendents.isEmpty() && !comandesAturades.isEmpty()) {
+			getComandesAturades();
+			return true;
+		} else if (!comandesPendents.isEmpty() && comandesAturades.isEmpty()){
+			getComandesPendents();
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean mostraComandesAturadesPendentsDePeces(){
+		if(!comandesAturades.isEmpty()){
+			getComandesAturades();
+			return true;
+		}else{
+		return false;
+		}
+	}
+	
 }
