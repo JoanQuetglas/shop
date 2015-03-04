@@ -271,6 +271,7 @@ public class Gestor {
 		return cataleg;
 	}
 
+
 	public boolean mostrarComandesSenseAssignar() {
 		if (!comandesPendents.isEmpty() && !comandesAturades.isEmpty()) {
 			getComandesPendents();
@@ -294,5 +295,6 @@ public class Gestor {
 		return false;
 		}
 	}
+
 	
 }
