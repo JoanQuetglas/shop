@@ -127,14 +127,24 @@ public class Client {
 			int visaNumTargeta, int visaDataExpiracio) {
 		Pagament nouPagament = new Pagament(tipus, visaPropietari, visaCodi,
 				visaNumTargeta, visaDataExpiracio);
+		setPagamentPredeterminat(nouPagament);
 	}
 	
 	/**
 	 * Afegir pagament COMPTE BANCARI
 	 * @param tipus
 	 */
-	public void afegirPagament(TipusPagaments tipus) {
-		Pagament nouPagament = new Pagament(tipus);
+	public String afegirPagament(TipusPagaments tipus) {
+		if(tipus == TipusPagaments.TRANSFERENCIA){
+			Pagament nouPagament = new Pagament(tipus);
+			setPagamentPredeterminat(nouPagament);
+			return "699991004";
+			
+		}else if(tipus == TipusPagaments.CONTRAREMBOLS){
+			Pagament nouPagament = new Pagament(tipus);
+			setPagamentPredeterminat(nouPagament);
+		}
+		return null;
 	}
 	/**
 	 * Afegir pagament PAYPAL
@@ -144,6 +154,7 @@ public class Client {
 	 */
 	public void afegirPagament(TipusPagaments tipus, String ppCompta, int ppContrasenya) {
 		Pagament nouPagament = new Pagament(tipus, ppCompta, ppContrasenya);
+		setPagamentPredeterminat(nouPagament);
 	}
 
 	
