@@ -321,6 +321,7 @@ public class Gestor {
 				if (dniClient == client.getDni()) {
 					Pagament nouPagament = new Pagament(tipus);
 					client.setPagamentPredeterminat(nouPagament);
+					
 				}
 			}
 		}
@@ -367,6 +368,15 @@ public class Gestor {
 		} else {
 			return false;
 		}
+	}
+	public boolean afegirAdreça(String dniClient, String adreça){
+		for (Client client : llistaClients) {
+			if (dniClient == client.getDni()) {
+				client.setAdreça(adreça);
+				return true;
+			}
+	}
+		return false;
 	}
 
 }
