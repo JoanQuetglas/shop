@@ -1,8 +1,0 @@
-/**
- * 
- */
-/**
- * @author Josep
- *
- */
-package utilitats;
