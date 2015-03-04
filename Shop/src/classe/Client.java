@@ -118,12 +118,12 @@ public class Client {
 		Pagament nouPagament = new Pagament(tipus);
 	}
 
-	public void afegirPagament(TipusPagaments tipus,int Codi, int DataExpiracio, int NumTargeta,
+	/*public void afegirPagament(TipusPagaments tipus,int Codi, int DataExpiracio, int NumTargeta,
 			String Propietari) {
 		Pagament nouPagament = new Pagament(Codi,DataExpiracio,NumTargeta,Propietari,tipus);
 	}
 
-	/*public void afegirPagament(TipusPagaments tipus, int numeroTargeta) {
+	public void afegirPagament(TipusPagaments tipus, int numeroTargeta) {
 		Pagament nouPagament = new Pagament(tipus,numeroTargeta);
 	}*/
 

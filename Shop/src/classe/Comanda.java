@@ -11,10 +11,13 @@ public class Comanda {
 	private Estat estat;
 	private Empleat empleat;
 
-	public Comanda(Client client, Model model) {
+	public Comanda(int id,Client client, Model model) {
 		this.client = client;
 		this.model = model;
-		id++;
+		this.id=id;
+		estat=Estat.PENDENT;
+		tipusPagament=client.getPagamentPredeterminat();
+		adreçaEnvio=client.getAdreça();
 	}
 
 	/**
@@ -77,10 +80,17 @@ public class Comanda {
 		this.tipusPagament = tipusPagament;
 	}
 
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "Comanda [adreçaEnvio=" + adreçaEnvio + ", client=" + client
-				+ ", model=" + model + ", tipusPagament=" + tipusPagament + "]";
+		return "Comanda [id=" + id + ", adreçaEnvio=" + adreçaEnvio
+				+ ", client=" + client + ", model=" + model
+				+ ", tipusPagament=" + tipusPagament + ", estat=" + estat
+				+ ", empleat=" + empleat + "]";
 	}
 
 	/**

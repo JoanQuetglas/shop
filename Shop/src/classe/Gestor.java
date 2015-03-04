@@ -10,38 +10,74 @@ public class Gestor {
 	private ArrayDeque<Comanda> comandesAturades;
 	private ArrayDeque<Empleat> empleatsLliures;
 	private ArrayList<Comanda> comandes;
+	private int idComandes;
 	private ArrayList<Client> llistaClients;
 	private ArrayList<Empleat> llistaEmpleats;
 	private ArrayList<Model> cataleg;
 
 	public Gestor() {
-		this.comandesPendents = new ArrayDeque<Comanda>();
-		this.comandesAturades = new ArrayDeque<Comanda>();
-		this.empleatsLliures = new ArrayDeque<Empleat>();
-		this.comandes = new ArrayList<Comanda>();
-		this.llistaClients = new ArrayList<Client>();
-		this.llistaEmpleats = new ArrayList<Empleat>();
+		comandesPendents = new ArrayDeque<Comanda>();
+		comandesAturades = new ArrayDeque<Comanda>();
+		empleatsLliures = new ArrayDeque<Empleat>();
+		comandes = new ArrayList<Comanda>();
+		llistaClients = new ArrayList<Client>();
+		llistaEmpleats = new ArrayList<Empleat>();
+		cataleg=new ArrayList<Model>();
+		idComandes=0;
+		
 	}
+	
+	/**
+	 * Comprova que mentres hi hagi comandes i treballadors aquests ultims s'assignin a una comanda. 
+	 * @return
+	 */
 
 	public boolean assignarTreball() {
-		return true;
+		boolean assignacio = false;
+		while (!comandesPendents.isEmpty() && !empleatsLliures.isEmpty()) {
+			if (comandesAturades.isEmpty()) {
+				Empleat empleat=empleatsLliures.remove();
+				empleat.setDisponibilitat(false);
+				Comanda comanda=comandesPendents.remove();
+				comanda.setEstat(Estat.ENPROCES);
+				comanda.setEmpleat(empleat);
+				comandes.add(comanda);
+				assignacio = true;
+			} else {
+				Empleat empleat=empleatsLliures.remove();
+				empleat.setDisponibilitat(false);
+				Comanda comanda=comandesAturades.remove();
+				comanda.setEstat(Estat.ENPROCES);
+				comanda.setEmpleat(empleat);
+				comandes.add(comanda);
+				assignacio = true;
+			}
+		}
+		return assignacio;
 	}
 
 	public boolean canviarEstatComanda(Estat tipus, int id) {
-		for (Comanda d : comandes) {
-			if (d.getId() == id) {
+		for (Comanda comanda : comandes) {
+			if (comanda.getId() == id) {
 				switch (tipus) {
 				case PENDENT:
-					d.setEstat(Estat.PENDENT);
+					comanda.setEstat(Estat.PENDENT);
 					return true;
 				case ENPROCES:
-					d.setEstat(Estat.ENPROCES);
+					comanda.setEstat(Estat.ENPROCES);
 					return true;
 				case ATURADA:
-					d.setEstat(Estat.ATURADA);
+					comanda.setEstat(Estat.ATURADA);
+					comanda.getEmpleat().setDisponibilitat(true);
+					empleatsLliures.add(comanda.getEmpleat());
+					assignarTreball();
+					//s'ha d'acabar
 					return true;
 				case FINALITZADA:
-					d.setEstat(Estat.FINALITZADA);
+					comanda.setEstat(Estat.FINALITZADA);
+					comanda.getEmpleat().setDisponibilitat(true);
+					empleatsLliures.add(comanda.getEmpleat());
+					assignarTreball();
 					return true;
 				default:
 					return false;
@@ -91,43 +127,74 @@ public class Gestor {
 
 	public boolean crearClient(String nom, String cognoms, String dni,
 			String contrasenya) {
-		Client nouClient = new Client(nom, cognoms, dni, contrasenya);
-		for (Client a : llistaClients) {
-			if (nouClient.getDni() != a.getDni()) {
-				llistaClients.add(nouClient);
-				return true;
+		if (llistaClients.isEmpty()) {
+			Client nouClient = new Client(nom, cognoms, dni, contrasenya);
+			llistaClients.add(nouClient);
+			return true;
+		} else {
+			for (Client a : llistaClients) {
+				if (dni != a.getDni()) {
+					Client nouClient = new Client(nom, cognoms, dni,
+							contrasenya);
+					llistaClients.add(nouClient);
+					return true;
+				}
 			}
 		}
 		return false;
 	}
 
-	public boolean crearComanda(Client client, Model model, String contrasenya) {
-		if (contrasenya == client.getContrasenya()) {
-			Comanda novaComanda = new Comanda(client, model);
-			comandesPendents.add(novaComanda);
-			novaComanda.setEstat(Estat.PENDENT);
-			return true;
+	public boolean crearComanda(String dni, String nomModel, String contrasenya) {
+		for(Client client:llistaClients){
+			if(client.getDni().equalsIgnoreCase(dni)){
+				for(Model model:cataleg){
+					if(model.getNom().equalsIgnoreCase(nomModel)){
+						if (contrasenya == client.getContrasenya()) {
+							idComandes++;
+							Comanda novaComanda = new Comanda(idComandes, client, model);
+							comandesPendents.add(novaComanda);
+							assignarTreball();
+							return true;
+						}
+					}
+				}
+				
+			}
 		}
 		return false;
 	}
 
 	public boolean crearEmpleat(String nom, String dni) {
-		Empleat nouEmpleat = new Empleat(nom, dni);
-		for (Empleat a : llistaEmpleats) {
-			if (nouEmpleat.getDNI() != a.getDNI() || llistaEmpleats.isEmpty()==true) {
-				llistaEmpleats.add(nouEmpleat);
-				return true;
+		if (llistaEmpleats.isEmpty()) {
+			Empleat nouEmpleat = new Empleat(nom, dni);
+			llistaEmpleats.add(nouEmpleat);
+			empleatsLliures.add(nouEmpleat);
+			return true;
+		} else {
+			for (Empleat a : llistaEmpleats) {
+				if (dni != a.getDNI()) {
+					Empleat nouEmpleat = new Empleat(nom, dni);
+					llistaEmpleats.add(nouEmpleat);
+					empleatsLliures.add(nouEmpleat);
+					return true;
+				}
 			}
 		}
 		return false;
 	}
 
 	public boolean crearModel(String llistaPeces, String nom, int preu) {
-		Model nouModel = new Model(llistaPeces, nom, preu);
-		for (Model a : cataleg) {
-			if (nouModel.getNom() != a.getNom()) {
-				cataleg.add(nouModel);
-				return true;
+		if (cataleg.isEmpty()) {
+			Model nouModel = new Model(llistaPeces, nom, preu);
+			cataleg.add(nouModel);
+			return true;
+		} else {
+			for (Model a : cataleg) {
+				if (nom != a.getNom()) {
+					Model nouModel = new Model(llistaPeces, nom, preu);
+					cataleg.add(nouModel);
+					return true;
+				}
 			}
 		}
 		return false;
