@@ -17,10 +17,9 @@ public class Proves {
 		m.crearComanda("48971680T", "asus", "hola");
 		System.out.println(m.getComandes());
 		System.out.println(m.getComandesPendents());
-		System.out.println("");
-		m.crearEmpleat("Dani", "43523423J");
-		m.assignarTreball();
-		System.out.println(m.getComandesPendents());
+		m.inicialitzacio();
+		
+		
 	}
 
 }

@@ -3,6 +3,7 @@ package classe;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 
+
 import utilitats.Estat;
 
 public class Gestor {
@@ -295,6 +296,8 @@ public class Gestor {
 		return false;
 		}
 	}
-
+	public void modelsDisponibles(){
+		
+	}
 	
 }
