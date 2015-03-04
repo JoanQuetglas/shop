@@ -1,7 +1,5 @@
 package classe;
 
-import utilitats.TipusPagaments;
-
 public class Client {
 	private String nom;
 	private String cognoms;
@@ -115,47 +113,7 @@ public class Client {
 	}
 	
 	
-	/**
-	 * Afegir pagament de VISA
-	 * @param tipus
-	 * @param visaPropietari
-	 * @param visaCodi
-	 * @param visaNumTargeta
-	 * @param visaDataExpiracio
-	 */
-	public void afegirPagament(TipusPagaments tipus, String visaPropietari, int visaCodi,
-			int visaNumTargeta, int visaDataExpiracio) {
-		Pagament nouPagament = new Pagament(tipus, visaPropietari, visaCodi,
-				visaNumTargeta, visaDataExpiracio);
-		setPagamentPredeterminat(nouPagament);
-	}
-	
-	/**
-	 * Afegir pagament COMPTE BANCARI
-	 * @param tipus
-	 */
-	public String afegirPagament(TipusPagaments tipus) {
-		if(tipus == TipusPagaments.TRANSFERENCIA){
-			Pagament nouPagament = new Pagament(tipus);
-			setPagamentPredeterminat(nouPagament);
-			return "699991004";
-			
-		}else if(tipus == TipusPagaments.CONTRAREMBOLS){
-			Pagament nouPagament = new Pagament(tipus);
-			setPagamentPredeterminat(nouPagament);
-		}
-		return null;
-	}
-	/**
-	 * Afegir pagament PAYPAL
-	 * @param tipus
-	 * @param ppCompta
-	 * @param ppContrasenya
-	 */
-	public void afegirPagament(TipusPagaments tipus, String ppCompta, int ppContrasenya) {
-		Pagament nouPagament = new Pagament(tipus, ppCompta, ppContrasenya);
-		setPagamentPredeterminat(nouPagament);
-	}
+
 
 	
 	

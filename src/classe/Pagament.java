@@ -86,6 +86,13 @@ public class Pagament {
 		this.visaDataExpiracio = visaDataExpiracio;
 	}
 
+	@Override
+	public String toString() {
+		return "Pagament [tipus=" + tipus + "]";
+	}
+
+
+
 	/**
 	 * @param tipus
 	 */

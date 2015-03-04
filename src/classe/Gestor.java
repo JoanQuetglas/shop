@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 import utilitats.Estat;
+import utilitats.TipusPagaments;
 
 public class Gestor {
 	private ArrayDeque<Comanda> comandesPendents;
@@ -27,17 +28,24 @@ public class Gestor {
 		idComandes = 0;
 
 	}
-	
-	public void inicialitzacio(){
+
+	public void inicialitzacio() {
 		crearClient("Josep", "Morey", "48971680T", "hola");
-		crearClient("Joan","Quetglas","46808932Z","4563");
+		crearClient("Joan", "Quetglas", "46808932Z", "4563");
+
 		crearEmpleat("Francesc", "59681391Z");
-		crearEmpleat("Toni","47839258S");
-		crearEmpleat("Joan","44335566F");
+		crearEmpleat("Toni", "47839258S");
+		crearEmpleat("Joan", "44335566F");
 		crearEmpleat("Dani", "43523423J");
-		crearModel("Processador Intel core I7,Placa base Asus P5K, Targeta grafica Geforece GTX489", "M095Z", 1700);
-		crearModel("Processador Intel core I5,Placa base Rocket ZS, Targeta grafica Geforece G400", "M090T", 700);
-		crearModel("Processador Intel core I3,Placa base Intel TR, Targeta grafica Geforece G700", "M090S", 760);
+		crearModel(
+				"Processador Intel core I7,Placa base Asus P5K, Targeta grafica Geforece GTX489",
+				"M095Z", 1700);
+		crearModel(
+				"Processador Intel core I5,Placa base Rocket ZS, Targeta grafica Geforece G400",
+				"M090T", 700);
+		crearModel(
+				"Processador Intel core I3,Placa base Intel TR, Targeta grafica Geforece G700",
+				"M090S", 760);
 		assignarTreball();
 	}
 
@@ -272,6 +280,70 @@ public class Gestor {
 		return cataleg;
 	}
 
+	/**
+	 * Afegir pagament de VISA
+	 * 
+	 * @param tipus
+	 * @param visaPropietari
+	 * @param visaCodi
+	 * @param visaNumTargeta
+	 * @param visaDataExpiracio
+	 */
+	public void afegirPagament(String dniClient, TipusPagaments tipus,
+			String visaPropietari, int visaCodi, int visaNumTargeta,
+			int visaDataExpiracio) {
+		for (Client client : llistaClients) {
+			if (dniClient == client.getDni()) {
+				Pagament nouPagament = new Pagament(tipus, visaPropietari,
+						visaCodi, visaNumTargeta, visaDataExpiracio);
+				client.setPagamentPredeterminat(nouPagament);
+			}
+		}
+	}
+
+	/**
+	 * Afegir pagament COMPTE BANCARI
+	 * 
+	 * @param tipus
+	 */
+	public String afegirPagament(String dniClient, TipusPagaments tipus) {
+		if (tipus == TipusPagaments.TRANSFERENCIA) {
+			for (Client client : llistaClients) {
+				if (dniClient == client.getDni()) {
+					Pagament nouPagament = new Pagament(tipus);
+					client.setPagamentPredeterminat(nouPagament);
+					return "699991004";
+				}
+			}
+
+		} else if (tipus == TipusPagaments.CONTRAREMBOLS) {
+			for (Client client : llistaClients) {
+				if (dniClient == client.getDni()) {
+					Pagament nouPagament = new Pagament(tipus);
+					client.setPagamentPredeterminat(nouPagament);
+				}
+			}
+		}
+		return null;
+	}
+
+	/**
+	 * Afegir pagament PAYPAL
+	 * 
+	 * @param tipus
+	 * @param ppCompta
+	 * @param ppContrasenya
+	 */
+	public void afegirPagament(String dniClient, TipusPagaments tipus,
+			String ppCompta, int ppContrasenya) {
+		for (Client client : llistaClients) {
+			if (dniClient == client.getDni()) {
+				Pagament nouPagament = new Pagament(tipus, ppCompta, ppContrasenya);
+				client.setPagamentPredeterminat(nouPagament);
+			}
+		}
+
+	}
 
 	public boolean mostrarComandesSenseAssignar() {
 		if (!comandesPendents.isEmpty() && !comandesAturades.isEmpty()) {
@@ -281,23 +353,20 @@ public class Gestor {
 		} else if (comandesPendents.isEmpty() && !comandesAturades.isEmpty()) {
 			getComandesAturades();
 			return true;
-		} else if (!comandesPendents.isEmpty() && comandesAturades.isEmpty()){
+		} else if (!comandesPendents.isEmpty() && comandesAturades.isEmpty()) {
 			getComandesPendents();
 			return true;
 		}
 		return false;
 	}
-	
-	public boolean mostraComandesAturadesPendentsDePeces(){
-		if(!comandesAturades.isEmpty()){
+
+	public boolean mostraComandesAturadesPendentsDePeces() {
+		if (!comandesAturades.isEmpty()) {
 			getComandesAturades();
 			return true;
-		}else{
-		return false;
+		} else {
+			return false;
 		}
 	}
-	public void modelsDisponibles(){
-		
-	}
-	
+
 }
