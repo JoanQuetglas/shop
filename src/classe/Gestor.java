@@ -92,10 +92,11 @@ public class Gestor {
 					return true;
 				case ATURADA:
 					comanda.setEstat(Estat.ATURADA);
+					comandesAturades.add(comanda);
 					comanda.getEmpleat().setDisponibilitat(true);
-					empleatsLliures.add(comanda.getEmpleat());
+					empleatsLliures.add(comanda.getEmpleat()); //acabat
+					comanda.setEmpleat(null);
 					assignarTreball();
-					// s'ha d'acabar
 					return true;
 				case FINALITZADA:
 					comanda.setEstat(Estat.FINALITZADA);
