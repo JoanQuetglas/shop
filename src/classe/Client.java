@@ -1,13 +1,43 @@
 package classe;
 
 public class Client {
+	/**
+	 * Nom del client
+	 */
 	private String nom;
+	
+	/**
+	 * Cognoms del client
+	 */
 	private String cognoms;
+	
+	/**
+	 * DNI del client
+	 */
 	private String dni;
+	
+	/**
+	 * Contrasenya del client
+	 */
 	private String contrasenya;
+	
+	/**
+	 * Adreça del client
+	 */
 	private String adreça;
+	
+	/**
+	 * Pagament predeterminat del client
+	 */
 	private Pagament pagamentPredeterminat;
-
+	
+	/**
+	 * Crea un client nou
+	 * @param nom
+	 * @param cognoms
+	 * @param dni
+	 * @param contrasenya
+	 */
 	public Client(String nom, String cognoms, String dni, String contrasenya) {
 		this.nom = nom;
 		this.cognoms = cognoms;
@@ -23,8 +53,8 @@ public class Client {
 	}
 
 	/**
+	 * Modificar
 	 * @param nom
-	 *            the nom to set
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
