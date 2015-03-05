@@ -46,10 +46,10 @@ public class Gestor {
 		crearModel(
 				"Processador Intel core I3,Placa base Intel TR, Targeta grafica Geforece G700",
 				"M090S", 760);
-		assignarTreball();
+		
 		
 	}
-
+ 
 	/**
 	 * Comprova que mentres hi hagi comandes i treballadors aquests ultims
 	 * s'assignin a una comanda.
@@ -66,7 +66,6 @@ public class Gestor {
 				Comanda comanda = comandesPendents.remove();
 				comanda.setEstat(Estat.ENPROCES);
 				comanda.setEmpleat(empleat);
-				
 				assignacio = true;
 			}else{
 				Empleat empleat = empleatsLliures.remove();
@@ -74,14 +73,13 @@ public class Gestor {
 				Comanda comanda = comandesAturades.remove();
 				comanda.setEstat(Estat.ENPROCES);
 				comanda.setEmpleat(empleat);
-				
 				assignacio = true;
 			}
 		}
 		return assignacio;
 	}
 	public boolean assignarTreball2(){
-		boolean assignacio = false;
+
 		while(!empleatsLliures.isEmpty()){
 			if(!comandesAturades.isEmpty()){
 				Empleat e = empleatsLliures.removeFirst();
@@ -89,17 +87,17 @@ public class Gestor {
 				e.setDisponibilitat(false);
 				c.setEstat(Estat.ENPROCES);
 				c.setEmpleat(e);
-				assignacio= true;
+				return true;
 			}else if(!comandesPendents.isEmpty()){
 				Empleat e = empleatsLliures.removeFirst();
 				Comanda c = comandesPendents.removeFirst();
 				e.setDisponibilitat(false);
 				c.setEstat(Estat.ENPROCES);
 				c.setEmpleat(e);
-				assignacio= true;
+				return true;
 			}
 		}
-		return assignacio;
+		return false;
 	}
 	
 	public boolean canviarEstatComanda(Estat tipus, int id) {
