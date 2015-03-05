@@ -47,6 +47,7 @@ public class Gestor {
 				"Processador Intel core I3,Placa base Intel TR, Targeta grafica Geforece G700",
 				"M090S", 760);
 		assignarTreball();
+		
 	}
 
 	/**
@@ -65,21 +66,42 @@ public class Gestor {
 				Comanda comanda = comandesPendents.remove();
 				comanda.setEstat(Estat.ENPROCES);
 				comanda.setEmpleat(empleat);
-				comandes.add(comanda);
+				
 				assignacio = true;
-			} else {
+			}else{
 				Empleat empleat = empleatsLliures.remove();
 				empleat.setDisponibilitat(false);
 				Comanda comanda = comandesAturades.remove();
 				comanda.setEstat(Estat.ENPROCES);
 				comanda.setEmpleat(empleat);
-				comandes.add(comanda);
+				
 				assignacio = true;
 			}
 		}
 		return assignacio;
 	}
-
+	public boolean assignarTreball2(){
+		boolean assignacio = false;
+		while(!empleatsLliures.isEmpty()){
+			if(!comandesAturades.isEmpty()){
+				Empleat e = empleatsLliures.removeFirst();
+				Comanda c = comandesAturades.removeFirst();
+				e.setDisponibilitat(false);
+				c.setEstat(Estat.ENPROCES);
+				c.setEmpleat(e);
+				assignacio= true;
+			}else if(!comandesPendents.isEmpty()){
+				Empleat e = empleatsLliures.removeFirst();
+				Comanda c = comandesPendents.removeFirst();
+				e.setDisponibilitat(false);
+				c.setEstat(Estat.ENPROCES);
+				c.setEmpleat(e);
+				assignacio= true;
+			}
+		}
+		return assignacio;
+	}
+	
 	public boolean canviarEstatComanda(Estat tipus, int id) {
 		for (Comanda comanda : comandes) {
 			if (comanda.getId() == id) {
@@ -96,13 +118,12 @@ public class Gestor {
 					comanda.getEmpleat().setDisponibilitat(true);
 					empleatsLliures.add(comanda.getEmpleat()); //acabat
 					comanda.setEmpleat(null);
-					assignarTreball();
+					assignarTreball2();
 					return true;
 				case FINALITZADA:
 					comanda.setEstat(Estat.FINALITZADA);
 					comanda.getEmpleat().setDisponibilitat(true);
 					empleatsLliures.add(comanda.getEmpleat());
-					assignarTreball();
 					return true;
 				default:
 					return false;
@@ -179,6 +200,7 @@ public class Gestor {
 							Comanda novaComanda = new Comanda(idComandes,
 									client, model);
 							comandesPendents.add(novaComanda);
+							comandes.add(novaComanda);
 							assignarTreball();
 							return true;
 						}
