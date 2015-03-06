@@ -474,6 +474,7 @@ public class Gestor {
 		System.out.println("2- Comandes pendents de peces");
 		System.out.println("3- Compres d'un client");
 		System.out.println("4- Models disponibles");
+		System.out.println("5- Comandes realitzades per treballadors");
 		
 		System.out.println("----------------------------------------------");
 		int value =p.llegirSencer("Introdueix una opció: ");
@@ -507,11 +508,11 @@ public class Gestor {
 			System.out
 					.println("-------------------------------------------------------");
 			System.out
-					.println("********************************************************");
+					.println("*********************************************************");
 			System.out
-					.println("***Has seleccionat 'Compres d'un client'***");
+					.println("**********Has seleccionat 'Compres d'un client'**********");
 			System.out
-					.println("********************************************************");
+					.println("*********************************************************");
 			String value3 =p.llegirCadena("Introdueix el DNI: ");
 			
 			System.out.println(tornarComandesClient(value3));
@@ -521,17 +522,30 @@ public class Gestor {
 			System.out
 					.println("-------------------------------------------------------");
 			System.out
-					.println("********************************************************");
+					.println("*********************************************************");
 			System.out
-					.println("******Has seleccionat 'Models disponibles'******");
+					.println("**********Has seleccionat 'Models disponibles'***********");
 			System.out
-					.println("********************************************************");
+					.println("*********************************************************");
 			String value4 =p.llegirCadena("Com vols ordenar els models[nom o preu]: ");
 			
 			System.out.println(modelDisponibles(value4));
 					
 
-		} else {
+		} else if (value == 5) {
+			System.out
+					.println("-------------------------------------------------------");
+			System.out
+					.println("*******************************************************************");
+			System.out
+					.println("******Has seleccionat 'Comandes realitzades per treballadors'******");
+			System.out
+					.println("*******************************************************************");
+			int value5 =p.llegirSencer("Introdueix l'ID de la comanda: ");
+			
+			System.out.println(tornarEmpleatRealitzaComanda(value5));
+			
+		}else {
 			System.out.println("No es un nombre valid!");
 		}
 	}

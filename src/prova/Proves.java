@@ -9,9 +9,14 @@ import classe.Gestor;
 public class Proves {
 
 	public static void main(String[] args) {
+		
 		Gestor m = new Gestor();
 		m.inicialitzacio();
-		System.out.println(m.modelDisponibles("preu"));
+		m.crearComanda("46808932Z", "M090S", "4563");
+		boolean a=m.crearComanda("48971680T", "M095Z", "hola");
+		System.out.println(a);
+		m.menu();	
+		
 	}
 
 }
