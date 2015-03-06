@@ -354,56 +354,67 @@ public class Gestor {
 
 	}
 
-	public boolean mostrarComandesSenseAssignar() { //malament
+
+	public ArrayList<Comanda> mostrarComandesSenseAssignar() {
+		ArrayList<Comanda> comandesSenseAsig = new ArrayList<Comanda>();
 		if (!comandesPendents.isEmpty() && !comandesAturades.isEmpty()) {
-			getComandesPendents();
-			getComandesAturades();
-			return true;
+			comandesSenseAsig.addAll(getComandesPendents());
+			comandesSenseAsig.addAll(getComandesAturades());
+			return comandesSenseAsig;
 		} else if (comandesPendents.isEmpty() && !comandesAturades.isEmpty()) {
-			getComandesAturades();
-			return true;
+			comandesSenseAsig.addAll(getComandesAturades());
+			return comandesSenseAsig;
 		} else if (!comandesPendents.isEmpty() && comandesAturades.isEmpty()) {
-			getComandesPendents();
-			return true;
+			comandesSenseAsig.addAll(getComandesPendents());
+			return comandesSenseAsig;
 		}
-		return false;
+		return null;
 	}
 
-	public boolean mostraComandesAturadesPendentsDePeces() { //malament
+	public ArrayList<Comanda> mostraComandesAturadesPendentsDePeces() {
+		ArrayList<Comanda> comandesAturadesPendents = new ArrayList<Comanda>();
 		if (!comandesAturades.isEmpty()) {
-			getComandesAturades();
-			return true;
+			comandesAturadesPendents.addAll(comandesAturades);
+			return comandesAturadesPendents;
 		} else {
-			return false;
+			return null;
 		}
 	}
-	public boolean afegirAdreça(String dniClient, String adreça){
+
+	public boolean afegirAdreça(String dniClient, String adreça) {
 		for (Client client : llistaClients) {
 			if (dniClient == client.getDni()) {
 				client.setAdreça(adreça);
 				return true;
 			}
-	}
+		}
 		return false;
 	}
 
-	public Comanda tornarComandesClient(String nom , String contrasenya){ //acabar
-		
+	public ArrayList<Comanda> tornarComandesClient(String dni) {
+		ArrayList<Comanda> comandesClient = new ArrayList<Comanda>();
 		for (Client client : llistaClients) {
-			if (nom == client.getNom() && contrasenya == client.getContrasenya()){
-				for(Comanda com : comandes ){
-					if(client == com.getClient()){
-						
+			if (dni == client.getDni()) {
+				for (Comanda comanda : comandes) {
+					if (client == comanda.getClient()) {
+						comandesClient.add(comanda);
 					}
 				}
-				
-				
+				return comandesClient;
+
 			}
-				
-			}
+		}
 		return null;
 	}
-	
+
+	public Empleat tornarEmpleatRealitzaComanda(int id) {
+		for (Comanda comanda : comandes) {
+			if (id == comanda.getId()) {
+				return comanda.getEmpleat();
+			}
+		}
+		return null;
+	}
 	
 	public void menu(){
 		Gestor p = new Gestor();
