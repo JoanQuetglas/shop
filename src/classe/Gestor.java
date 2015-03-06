@@ -4,6 +4,8 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 
+
+
 import utilitats.Estat;
 import utilitats.TipusPagaments;
 
@@ -396,5 +398,58 @@ public class Gestor {
 				
 			}
 		return null;
+	}
+	
+	
+	public void menu(){
+		
+		System.out.println("1-");
+		System.out.println("2-");
+		System.out.println("3-");
+		System.out.println("4-");
+		
+		System.out.println("----------------------------------------------");
+		int value = menu.LlegirTeclat.llegirSencer("Introdueix una opció: ");
+
+		if (value == 1) {
+			System.out
+					.println("-------------------------------------------------------");
+			System.out
+					.println("*******************************************************");
+			System.out
+					.println("***Has seleccionat opcio 1.***");
+			System.out
+					.println("*******************************************************");
+			
+
+		} else if (value == 2) {
+			System.out
+					.println("-------------------------------------------------------");
+			System.out
+					.println("*******************************************************");
+			System.out
+					.println("***Has seleccionat opcio 2.***");
+			System.out
+					.println("*******************************************************");
+			
+
+		} else if (value == 3) {
+			System.out
+					.println("-------------------------------------------------------");
+			System.out
+					.println("********************************************************");
+			System.out
+					.println("***Has seleccionat opcio 3.***");
+			System.out
+					.println("********************************************************");
+			
+
+
+		} else if (value == 4) {
+			System.out.println("sortint...");
+
+		} else {
+			System.out.println("No es un nombre valid!");
+		}
 	}
 }
