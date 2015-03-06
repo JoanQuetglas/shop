@@ -12,7 +12,7 @@ import utilitats.OrdreModelPreu;
 import utilitats.TipusPagaments;
 
 /**
- * 
+ * Gestiona l'aplicació.
  * @author Quetglas, Torrens i Morey
  *
  */

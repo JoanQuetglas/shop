@@ -1,7 +1,7 @@
 package classe;
 
 /**
- * 
+ * Persona física que treballa a l'empresa
  * @author Quetglas, Torrens i Morey
  *
  */

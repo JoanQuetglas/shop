@@ -17,63 +17,107 @@ public class Pagament {
 	private int visaNumTargeta;
 	private int visaDataExpiracio;
 
+
+
+	/**
+	 * @return El tipus
+	 */
 	public TipusPagaments getTipus() {
 		return tipus;
 	}
 
+	/**
+	 * @param tipus Modifica el tipus
+	 */
 	public void setTipus(TipusPagaments tipus) {
 		this.tipus = tipus;
 	}
 
+	/**
+	 * @return El ppCompta
+	 */
 	public String getPpCompta() {
 		return ppCompta;
 	}
 
+	/**
+	 * @param ppCompta Modifica el ppCompta
+	 */
 	public void setPpCompta(String ppCompta) {
 		this.ppCompta = ppCompta;
 	}
 
+	/**
+	 * @return El ppContrasenya
+	 */
 	public int getPpContrasenya() {
 		return ppContrasenya;
 	}
 
+	/**
+	 * @param ppContrasenya Modifica ppContrasenya
+	 */
 	public void setPpContrasenya(int ppContrasenya) {
 		this.ppContrasenya = ppContrasenya;
 	}
 
+	/**
+	 * @return El visaPropietari
+	 */
 	public String getVisaPropietari() {
 		return visaPropietari;
 	}
 
+	/**
+	 * @param visaPropietari Modifica el visaPropietari
+	 */
 	public void setVisaPropietari(String visaPropietari) {
 		this.visaPropietari = visaPropietari;
 	}
 
+	/**
+	 * @return EL visaCodi
+	 */
 	public int getVisaCodi() {
 		return visaCodi;
 	}
 
+	/**
+	 * @param visaCodi Modifica el visaCodi
+	 */
 	public void setVisaCodi(int visaCodi) {
 		this.visaCodi = visaCodi;
 	}
 
+	/**
+	 * @return El visaNumTargeta
+	 */
 	public int getVisaNumTargeta() {
 		return visaNumTargeta;
 	}
 
+	/**
+	 * @param visaNumTargeta Modifica el visaNumTargeta
+	 */
 	public void setVisaNumTargeta(int visaNumTargeta) {
 		this.visaNumTargeta = visaNumTargeta;
 	}
 
+	/**
+	 * @return El visaDataExpiracio
+	 */
 	public int getVisaDataExpiracio() {
 		return visaDataExpiracio;
 	}
 
+	/**
+	 * @param visaDataExpiracio Modifica el visaDataExpiracio.
+	 */
 	public void setVisaDataExpiracio(int visaDataExpiracio) {
 		this.visaDataExpiracio = visaDataExpiracio;
 	}
 
-	/**
+	/**Crea un pagament visa
 	 * @param tipus
 	 * @param visaPropietari
 	 * @param visaCodi
@@ -95,7 +139,7 @@ public class Pagament {
 		return "Pagament [tipus=" + tipus + "]";
 	}
 
-	/**
+	/**Crea un transferencia o contrarebols
 	 * @param tipus
 	 */
 	public Pagament(TipusPagaments tipus) {
@@ -103,7 +147,7 @@ public class Pagament {
 		this.tipus = tipus;
 	}
 
-	/**
+	/**Crea un pagament de paypal
 	 * @param tipus
 	 * @param ppCompta
 	 * @param ppContrasenya

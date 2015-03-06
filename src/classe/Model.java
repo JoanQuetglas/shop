@@ -1,9 +1,22 @@
 package classe;
 
+/**
+ * Recull la informació de l'ordinador ofertat.
+ * @author Quetglas, Torrens i Morey
+ *
+ */
+
 public class Model {
 	private String llistaPeces;
 	private String nom;
 	private int preu;
+	
+	/**
+	 * Crea un model amb el parametres indicats
+	 * @param llistaPeces
+	 * @param nom
+	 * @param preu
+	 */
 
 	public Model(String llistaPeces, String nom, int preu) {
 		this.llistaPeces = llistaPeces;
@@ -12,7 +25,7 @@ public class Model {
 	}
 
 	/**
-	 * @return the llistaPeces
+	 * @return El llistaPeces
 	 */
 	public String getLlistaPeces() {
 		return llistaPeces;
@@ -20,14 +33,14 @@ public class Model {
 
 	/**
 	 * @param llistaPeces
-	 *            the llistaPeces to set
+	 *            Modifica el llistaPeces
 	 */
 	public void setLlistaPeces(String llistaPeces) {
 		this.llistaPeces = llistaPeces;
 	}
 
 	/**
-	 * @return the nom
+	 * @return El nom
 	 */
 	public String getNom() {
 		return nom;
@@ -35,14 +48,14 @@ public class Model {
 
 	/**
 	 * @param nom
-	 *            the nom to set
+	 *            Modifica el nom
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
 	/**
-	 * @return the preu
+	 * @return El preu
 	 */
 	public int getPreu() {
 		return preu;
@@ -50,7 +63,7 @@ public class Model {
 
 	/**
 	 * @param preu
-	 *            the preu to set
+	 *            Modifica el preu
 	 */
 	public void setPreu(int preu) {
 		this.preu = preu;

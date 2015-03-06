@@ -1,7 +1,7 @@
 package classe;
 
 /**
- * 
+ * Representa la persona física que crea demandes de comanda.
  * @author Quetglas, Torrens i Morey
  *
  */
