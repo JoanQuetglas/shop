@@ -1,5 +1,11 @@
 package classe;
 
+/**
+ * 
+ * @author Quetglas, Torrens i Morey
+ *
+ */
+
 public class Client {
 	/**
 	 * Nom del client

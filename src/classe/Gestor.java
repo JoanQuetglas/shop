@@ -11,6 +11,12 @@ import utilitats.OrdreModelNom;
 import utilitats.OrdreModelPreu;
 import utilitats.TipusPagaments;
 
+/**
+ * 
+ * @author Quetglas, Torrens i Morey
+ *
+ */
+
 public class Gestor {
 
 	/**
@@ -553,8 +559,7 @@ public class Gestor {
 					.println("**********Has seleccionat 'Models disponibles'***********");
 			System.out
 					.println("*********************************************************");
-			String value4 = p
-					.llegirCadena("Com vols ordenar els models[nom o preu]: ");
+			String value4 = p.llegirCadena("Com vols ordenar els models[nom o preu]: ");
 
 			System.out.println(modelDisponibles(value4));
 

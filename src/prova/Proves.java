@@ -5,20 +5,17 @@ import utilitats.TipusPagaments;
 import classe.Client;
 import classe.Gestor;
 
+/**
+ * 
+ * @author Quetglas, Torrens i Morey
+ *
+ */
+
 public class Proves {
 
 	public static void main(String[] args) {
 		
 		Gestor m = new Gestor();
-<<<<<<< HEAD
-		m.inicialitzacio();
-		m.crearComanda("46808932Z", "M090S", "4563");
-		m.crearComanda("48971680T", "M095Z", "hola");
-		m.menu();
-		
-		
-=======
 
->>>>>>> branch 'master' of https://github.com/JoanQuetglas/shop.git
 	}
 }

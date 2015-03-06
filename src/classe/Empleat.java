@@ -1,5 +1,11 @@
 package classe;
 
+/**
+ * 
+ * @author Quetglas, Torrens i Morey
+ *
+ */
+
 public class Empleat {
 	private String nom;
 	private String dni;

@@ -2,6 +2,12 @@ package classe;
 
 import utilitats.TipusPagaments;
 
+/**
+ * 
+ * @author Quetglas, Torrens i Morey
+ *
+ */
+
 public class Pagament {
 	private TipusPagaments tipus;
 	private String ppCompta;

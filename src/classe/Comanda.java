@@ -2,6 +2,12 @@ package classe;
 
 import utilitats.Estat;
 
+/**
+ * 
+ * @author Quetglas, Torrens i Morey
+ *
+ */
+
 public class Comanda {
 
 	/**
