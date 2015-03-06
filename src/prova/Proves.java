@@ -28,7 +28,7 @@ public class Proves {
 		
 		System.out.println("prova metodes activitat:");
 		
-	
+	m.menu();
 		
 	}
 

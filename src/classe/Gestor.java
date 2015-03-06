@@ -2,10 +2,6 @@ package classe;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-
-
-
-
 import utilitats.Estat;
 import utilitats.TipusPagaments;
 
@@ -402,7 +398,7 @@ public class Gestor {
 	
 	
 	public void menu(){
-		
+		Gestor p = new Gestor();
 		System.out.println("1-");
 		System.out.println("2-");
 		System.out.println("3-");
@@ -420,6 +416,7 @@ public class Gestor {
 					.println("***Has seleccionat opcio 1.***");
 			System.out
 					.println("*******************************************************");
+			System.out.println(p.mostrarComandesSenseAssignar());
 			
 
 		} else if (value == 2) {
