@@ -2,7 +2,11 @@ package classe;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
+
 import utilitats.Estat;
+import utilitats.OrdreModelNom;
+import utilitats.OrdreModelPreu;
 import utilitats.TipusPagaments;
 
 public class Gestor {
@@ -414,6 +418,17 @@ public class Gestor {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<Model> modelDisponibles(String tipusOrdenacio){
+		OrdreModelNom nom=new OrdreModelNom();
+		OrdreModelPreu preu=new OrdreModelPreu();
+		if(tipusOrdenacio.equalsIgnoreCase("nom")){
+			Collections.sort(cataleg, nom);
+			return cataleg;
+		}else if(tipusOrdenacio.equalsIgnoreCase("preu"))
+			Collections.sort(cataleg, preu);
+			return cataleg;
 	}
 	
 	public void menu(){
