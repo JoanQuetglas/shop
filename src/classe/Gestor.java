@@ -399,9 +399,9 @@ public class Gestor {
 	
 	public void menu(){
 		Gestor p = new Gestor();
-		System.out.println("1-");
-		System.out.println("2-");
-		System.out.println("3-");
+		System.out.println("1- Veure les comandes sense asignar");
+		System.out.println("2- Comandes pendents de peces");
+		System.out.println("3- ");
 		System.out.println("4-");
 		
 		System.out.println("----------------------------------------------");
@@ -413,7 +413,7 @@ public class Gestor {
 			System.out
 					.println("*******************************************************");
 			System.out
-					.println("***Has seleccionat opcio 1.***");
+					.println("*** Has seleccionat 'Veure les comandes sense asignar' ***");
 			System.out
 					.println("*******************************************************");
 			System.out.println(p.mostrarComandesSenseAssignar());
@@ -428,7 +428,7 @@ public class Gestor {
 					.println("***Has seleccionat opcio 2.***");
 			System.out
 					.println("*******************************************************");
-			
+			System.out.println(p.mostraComandesAturadesPendentsDePeces());
 
 		} else if (value == 3) {
 			System.out
