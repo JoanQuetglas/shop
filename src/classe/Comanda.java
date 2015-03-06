@@ -74,8 +74,8 @@ public class Comanda {
 	}
 
 	/**
+	 * Modificar adreçaEnvio de la comanda
 	 * @param adreçaEnvio
-	 *            the adreçaEnvio to set
 	 */
 	public void setAdreçaEnvio(String adreçaEnvio) {
 		this.adreçaEnvio = adreçaEnvio;
@@ -90,15 +90,15 @@ public class Comanda {
 	}
 
 	/**
+	 * Modificar client de la comanda
 	 * @param client
-	 *            the client to set
 	 */
 	public void setClient(Client client) {
 		this.client = client;
 	}
 
 	/**
-	 * Obtenir client de la comanda
+	 * Obtenir model de la comanda
 	 * @return the model
 	 */
 	public Model getModel() {
@@ -106,15 +106,15 @@ public class Comanda {
 	}
 
 	/**
+	 * Modificar model de la comanda
 	 * @param model
-	 *            the model to set
 	 */
 	public void setModel(Model model) {
 		this.model = model;
 	}
 
 	/**
-	 * Obtenir client de la comanda
+	 * Obtenir tipusPagament de la comanda
 	 * @return the tipusPagament
 	 */
 	public Pagament getTipusPagament() {
@@ -122,17 +122,15 @@ public class Comanda {
 	}
 
 	/**
+	 * Modificar tipusPagament de la comanda
 	 * @param tipusPagament
-	 *            the tipusPagament to set
 	 */
 	public void setTipusPagament(Pagament tipusPagament) {
 		this.tipusPagament = tipusPagament;
 	}
 
-	
-
 	/**
-	 * Obtenir client de la comanda
+	 * Obtenir estat de la comanda
 	 * @return the estat
 	 */
 	public Estat getEstat() {
@@ -140,15 +138,15 @@ public class Comanda {
 	}
 
 	/**
+	 * Modificar estat de la comanda
 	 * @param estat
-	 *            the estat to set
 	 */
 	public void setEstat(Estat estat) {
 		this.estat = estat;
 	}
 
 	/**
-	 * Obtenir client de la comanda
+	 * Obtenir empleat de la comanda
 	 * @return the empleat
 	 */
 	public Empleat getEmpleat() {
@@ -156,23 +154,23 @@ public class Comanda {
 	}
 
 	/**
+	 * Modificar empleat de la comanda
 	 * @param empleat
-	 *            the empleat to set
 	 */
 	public void setEmpleat(Empleat empleat) {
 		this.empleat = empleat;
 	}
 	
 	/**
-	 * Obtenir client de la comanda
-	 * @return
+	 * Obtenir id de la comanda
+	 * @return id
 	 */
 	public int getId() {
 		return id;
 	}
 	
 	/**
-	 * 
+	 * Modificar id de la comanda
 	 * @param id
 	 */
 	public void setId(int id) {
