@@ -1,6 +1,6 @@
 package classe;
 
-public class Model {
+public class Model{
 	private String llistaPeces;
 	private String nom;
 	private int preu;
@@ -61,5 +61,8 @@ public class Model {
 		return "Model [llistaPeces=" + llistaPeces + ", nom=" + nom + ", preu="
 				+ preu + "]";
 	}
+
+
+
 
 }
