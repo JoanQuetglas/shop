@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 
 
-import menu.LlegirTeclat;
 import java.util.Collections;
 
 import utilitats.Estat;
@@ -16,21 +15,42 @@ import utilitats.TipusPagaments;
 public class Gestor {
 	
 	/**
-	 * Conte totes les comandes pendent
+	 * Una coa de comandes pendents
 	 */
 	private ArrayDeque<Comanda> comandesPendents;
 	
 	/**
-	 * Conte totes les comandes aturades
+	 * Una coa de comandes aturades
 	 */
 	private ArrayDeque<Comanda> comandesAturades;
+	/**
+	 * Una coa d'empleats lliures
+	 */
 	private ArrayDeque<Empleat> empleatsLliures;
+	/**
+	 * Un arrayList del registre de totes les comandes que han passat per la nostra tenda
+	 */
 	private ArrayList<Comanda> comandes;
+	/**
+	 * La id de comanda
+	 */
 	private int idComandes;
+	/**
+	 * Una arrayList on es guarden tots els clients que s'ha registrat dins la nostra tenda
+	 */
 	private ArrayList<Client> llistaClients;
+	/**
+	 * Tots els empleat que fan feina dins la nostra tenda
+	 */
 	private ArrayList<Empleat> llistaEmpleats;
+	/**
+	 * Un arrayList on es guarden tots els models que tenim 
+	 */
 	private ArrayList<Model> cataleg;
 
+	/**
+	 * Constructor de gestor
+	 */
 	public Gestor() {
 		comandesPendents = new ArrayDeque<Comanda>();
 		comandesAturades = new ArrayDeque<Comanda>();
@@ -42,7 +62,9 @@ public class Gestor {
 		idComandes = 0;
 
 	}
-
+	/**
+	 * Aqui s'inicialitzen les dades de la nostra tenda on hi ha empleats i models
+	 */
 	public void inicialitzacio() {
 		crearClient("Josep", "Morey", "48971680T", "hola");
 		crearClient("Joan", "Quetglas", "46808932Z", "4563");
@@ -64,10 +86,8 @@ public class Gestor {
 	}
  
 	/**
-	 * Comprova que mentres hi hagi comandes i treballadors aquests ultims
-	 * s'assignin a una comanda.
-	 * 
-	 * @return
+	 * Comprova que mentres hi hagi comandes pendents o aturades i treballadors lliures s'assignin a una comanda pendent o aturada.
+	 * @return un boolea depent si s'ha realitzat la creació ( true ) o si no ( false )
 	 */
 
 	
@@ -97,9 +117,9 @@ public class Gestor {
 	
 	/**
 	 * Canvia l'estat de la comanda.
-	 * @param tipus
-	 * @param id
-	 * @return Vertader si s'ha completat i si no fals 
+	 * @param tipus és una opcio de una enumeració anomenada Estat
+	 * @param id és la calu identificadora de la comanda, per diferenciar-la dels altres
+	 * @return  un boolea depent si s'ha realitzat la creació ( true ) o si no ( false )
 	 */
 	
 	public boolean canviarEstatComanda(Estat tipus, int id) {
@@ -136,11 +156,11 @@ public class Gestor {
 	}
 
 	/**
-	 * Inserirem un boolea per saber l'estat de l'empleat
+	 * Inserirem un boolea per canviar l'estat d'un empleat
 	 * 
-	 * @param disp
-	 * @param dni
-	 * @return
+	 * @param disp pot ser true o false depenent com volguem canviar-ho
+	 * @param dni l'empleat que s'ha de canviar el seu estat
+	 * @return un boolea depent si s'ha realitzat la creació ( true ) o si no ( false )
 	 */
 	public boolean canviarEstatEmpleat(boolean disp, String dni) {
 		for (Empleat d : llistaEmpleats) {
@@ -161,16 +181,13 @@ public class Gestor {
 	}
 
 	/**
-	 * Crea un nou client si el dni inserit no coincideix amb cap dni dels
-	 * clients introduits anteriorment
-	 * 
-	 * @param nom
-	 * @param cognoms
-	 * @param dni
-	 * @param contrasenya
-	 * @return
+	 * Crea un nou client sempre que el dni inserit no coincideix amb cap dni dels clients introduits anteriorment 
+	 * @param nom 	del client
+	 * @param cognoms del cient
+	 * @param dni és una informacio unica que el diferencia de altres empleats 
+	 * @param contrasenya una informacio unica per complementar el dni
+	 * @return  un boolea depent si s'ha realitzat la creació ( true ) o si no ( false )
 	 */
-
 	public boolean crearClient(String nom, String cognoms, String dni,
 			String contrasenya) {
 		if (llistaClients.isEmpty()) {
@@ -189,7 +206,14 @@ public class Gestor {
 		}
 		return false;
 	}
-
+	
+	/**
+	 * Crea les comandes i directament les afegeix dins arraylist de comanda i la coa de comandesPendets
+	 * @param dni és el que defineix el client que realitza la comanda
+	 * @param nomModel	és el model de dins el cataleg que el client
+	 * @param contrasenya	del el client que l'ha realitzada
+	 * @return un boolea depent si s'ha realitzat la creació ( true ) o si no ( false )
+	 */
 	public boolean crearComanda(String dni, String nomModel, String contrasenya) {
 		for (Client client : llistaClients) {
 			if (client.getDni().equalsIgnoreCase(dni)) {
@@ -213,6 +237,12 @@ public class Gestor {
 		return false;
 	}
 
+	/**
+	 * Crea els empleats i els afegeix dins l'arraylist de la llista d'empleats i la coa  empleatsLliures
+	 * @param nom	és el nom de l'empleat
+	 * @param dni	és el dni , una dada unica que el diferencia de altres empleats
+	 * @return un boolea depent si s'ha realitzat la creació ( true ) o si no ( false )
+	 */
 	public boolean crearEmpleat(String nom, String dni) {
 		if (llistaEmpleats.isEmpty()) {
 			Empleat nouEmpleat = new Empleat(nom, dni);
@@ -234,6 +264,13 @@ public class Gestor {
 		return false;
 	}
 
+	/**
+	 * Crea models d'ordinadors mod i els afegeix dins els cataleg
+	 * @param llistaPeces és un String on es posen totes les peces que necessita aquest ordinador mod per ser montat
+	 * @param nom	és el nom de l'ordinador mod
+	 * @param preu	és el que el client haurà de pagar per ell
+	 * @return un boolea depent si s'ha realitzat la creació ( true ) o si no ( false )
+	 */
 	public boolean crearModel(String llistaPeces, String nom, int preu) {
 		if (cataleg.isEmpty()) {
 			Model nouModel = new Model(llistaPeces, nom, preu);
@@ -254,49 +291,56 @@ public class Gestor {
 	
 
 	/**
-	 * @return the comandesPendents
+	 * Per visualitzar totes les comandes les quals es troben en un estat pendent
+	 * @return the comandesPendents és la coa que ordena de més antics a més nous en espera
 	 */
 	public ArrayDeque<Comanda> getComandesPendents() {
 		return comandesPendents;
 	}
 
 	/**
-	 * @return the comandesAturades
+	 * Per visualitzar totes les comandes les quals es troben en un estat d'aturada
+	 * @return the comandesAturades és la coa que ordena de més antics a més nous en espera
 	 */
 	public ArrayDeque<Comanda> getComandesAturades() {
 		return comandesAturades;
 	}
 
 	/**
-	 * @return the empleatsLliures
+	 * Per visualitzar tots els Empleats que tenen la disponibilitat true ,és a dir, no tenen cap comanda assignada 
+	 * @return the empleatsLliures és una coa que ordena els empleats de més temps d'espera (els primers) i els més recents esperant (els darrers)
 	 */
 	public ArrayDeque<Empleat> getEmpleatsLliures() {
 		return empleatsLliures;
 	}
 
 	/**
-	 * @return the comandes
+	 * Per visualitzar totes les comandes que han sol·licitat 
+	 * @return the comandes és l'arraylist que guarda totes les comandes que s'han creat
 	 */
 	public ArrayList<Comanda> getComandes() {
 		return comandes;
 	}
 
 	/**
-	 * @return the llistaClients
+	 * Per visualitzar tots els client que s'ha registrat
+	 * @return the llistaClients és un arraylist que guarda totes els clients registrats
 	 */
 	public ArrayList<Client> getLlistaClients() {
 		return llistaClients;
 	}
 
 	/**
-	 * @return the llistaEmpleats
+	 * Per visualitzar tots els empleats que fan feina a la nostra tenda/taller
+	 * @return the llistaEmpleats és un arraylist que guarda tots els nostres empleats
 	 */
 	public ArrayList<Empleat> getLlistaEmpleats() {
 		return llistaEmpleats;
 	}
 
 	/**
-	 * @return the cataleg
+	 * Per visualitzar tots els models que tenim guardats
+	 * @return the cataleg és l'arraylist que guarda els models existents
 	 */
 	public ArrayList<Model> getCataleg() {
 		return cataleg;
@@ -305,11 +349,11 @@ public class Gestor {
 	/**
 	 * Afegir pagament de VISA
 	 * 
-	 * @param tipus
-	 * @param visaPropietari
-	 * @param visaCodi
-	 * @param visaNumTargeta
-	 * @param visaDataExpiracio
+	 * @param tipus El tipus de pagament segon la enumeriacio de TipusPagaments
+	 * @param visaPropietari	El propietari en String
+	 * @param visaCodi	El codi de la vis
+	 * @param visaNumTargeta	El numero de targeta de la visa
+	 * @param visaDataExpiracio	La data que la visa expira
 	 */
 	public void afegirPagament(String dniClient, TipusPagaments tipus,
 			String visaPropietari, int visaCodi, int visaNumTargeta,
@@ -325,8 +369,8 @@ public class Gestor {
 
 	/**
 	 * Afegir pagament COMPTE BANCARI
-	 * 
-	 * @param tipus
+	 * @param dniClient Per corroborar l'existencia d'aquest client
+	 * @param tipus El tipus de pagament segon la enumeriacio de TipusPagaments
 	 */
 	public String afegirPagament(String dniClient, TipusPagaments tipus) {
 		if (tipus == TipusPagaments.TRANSFERENCIA) {
