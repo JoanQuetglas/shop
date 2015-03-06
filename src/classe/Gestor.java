@@ -30,7 +30,10 @@ public class Gestor {
 	private ArrayList<Client> llistaClients;
 	private ArrayList<Empleat> llistaEmpleats;
 	private ArrayList<Model> cataleg;
-
+	
+	/**
+	 * Crea un gestor buit
+	 */
 	public Gestor() {
 		comandesPendents = new ArrayDeque<Comanda>();
 		comandesAturades = new ArrayDeque<Comanda>();
