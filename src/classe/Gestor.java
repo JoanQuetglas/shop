@@ -334,63 +334,69 @@ public class Gestor {
 	}
 
 	/**
-	 * @return the comandesPendents
-	 */
+	* Per visualitzar totes les comandes les quals es troben en un estat pendent
+	* @return the comandesPendents és la coa que ordena de més antics a més nous en espera
+	*/
 	public ArrayDeque<Comanda> getComandesPendents() {
 		return comandesPendents;
 	}
 
 	/**
-	 * @return the comandesAturades
-	 */
+	* Per visualitzar totes les comandes les quals es troben en un estat d'aturada
+	* @return the comandesAturades és la coa que ordena de més antics a més nous en espera
+	*/
 	public ArrayDeque<Comanda> getComandesAturades() {
 		return comandesAturades;
 	}
-
 	/**
-	 * @return the empleatsLliures
-	 */
+	* Per visualitzar tots els Empleats que tenen la disponibilitat true ,és a dir, no tenen cap comanda assignada
+	* @return the empleatsLliures és una coa que ordena els empleats de més temps d'espera (els primers) i els més recents esperant (els darrers)
+	*/
 	public ArrayDeque<Empleat> getEmpleatsLliures() {
 		return empleatsLliures;
 	}
 
 	/**
-	 * @return the comandes
-	 */
+	* Per visualitzar totes les comandes que han sol·licitat
+	* @return the comandes és l'arraylist que guarda totes les comandes que s'han creat
+	*/
 	public ArrayList<Comanda> getComandes() {
 		return comandes;
 	}
 
 	/**
-	 * @return the llistaClients
-	 */
+	* Per visualitzar tots els client que s'ha registrat
+	* @return the llistaClients és un arraylist que guarda totes els clients registrats
+	*/
 	public ArrayList<Client> getLlistaClients() {
 		return llistaClients;
 	}
 
 	/**
-	 * @return the llistaEmpleats
-	 */
+	* Per visualitzar tots els empleats que fan feina a la nostra tenda/taller
+	* @return the llistaEmpleats és un arraylist que guarda tots els nostres empleats
+	*/
 	public ArrayList<Empleat> getLlistaEmpleats() {
 		return llistaEmpleats;
 	}
 
 	/**
-	 * @return the cataleg
+	 * Per visualitzar tots els models que tenim guardats
+	 * @return the cataleg és l'arraylist que guarda els models existents
 	 */
 	public ArrayList<Model> getCataleg() {
 		return cataleg;
 	}
 
 	/**
-	 * Afegir pagament de VISA
-	 * 
-	 * @param tipus
-	 * @param visaPropietari
-	 * @param visaCodi
-	 * @param visaNumTargeta
-	 * @param visaDataExpiracio
-	 */
+	* Afegir pagament de VISA
+	*
+	* @param tipus El tipus de pagament segon la enumeriacio de TipusPagaments
+	* @param visaPropietari El propietari en String
+	* @param visaCodi El codi de la vis
+	* @param visaNumTargeta El numero de targeta de la visa
+	* @param visaDataExpiracio La data que la visa expira
+	*/
 	public void afegirPagament(String dniClient, TipusPagaments tipus,
 			String visaPropietari, int visaCodi, int visaNumTargeta,
 			int visaDataExpiracio) {
@@ -404,10 +410,10 @@ public class Gestor {
 	}
 
 	/**
-	 * Afegir pagament COMPTE BANCARI o CONTRAREMBOLS
-	 * 
-	 * @param tipus
-	 */
+	* Afegir pagament COMPTE BANCARI o TRANSFERENCIA
+	* @param dniClient Per corroborar l'existencia d'aquest client
+	* @param tipus El tipus de pagament segon la enumeriacio de TipusPagaments
+	*/
 	public String afegirPagament(String dniClient, TipusPagaments tipus) {
 		if (tipus == TipusPagaments.TRANSFERENCIA) {
 			for (Client client : llistaClients) {
