@@ -3,14 +3,55 @@ package classe;
 import utilitats.Estat;
 
 public class Comanda {
+	
+	/**
+	 * identificador de la comanda
+	 */
 	private int id;
+	
+	/**
+	 * adreça Envio de la comanda
+	 */
 	private String adreçaEnvio;
+	
+	/**
+	 * client que fa la comanda
+	 */
 	private Client client;
+	
+	/**
+	 * model de la comanda
+	 */
 	private Model model;
+	
+	/**
+	 * tipus de Pagament per la comanda [PAYPAL, VISA, TRANSFERENCIA, CONTRAREMBOLS]
+	 */
 	private Pagament tipusPagament;
+	
+	/**
+	 * estat de la comanda [ENPROCES, FINALITZADA, ATURADA, PENDENT]
+	 */
 	private Estat estat;
+	
+	/**
+	 * empleat que s'encarrega de la comanda
+	 */
 	private Empleat empleat;
-
+	
+	
+	
+	
+	
+	/**
+	 * Crea una comanda nova.
+	 * @param id
+	 * @param client
+	 * @param model
+	 * @param estar
+	 * @param tipusPagament
+	 * @param adreçaEnvio
+	 */
 	public Comanda(int id, Client client, Model model) {
 		this.client = client;
 		this.model = model;
@@ -20,7 +61,12 @@ public class Comanda {
 		adreçaEnvio = client.getAdreça();
 	}
 
+	
+	
+	
+	
 	/**
+	 * Obtenir adreçaEnvio de la comanda
 	 * @return the adreçaEnvio
 	 */
 	public String getAdreçaEnvio() {
@@ -36,6 +82,7 @@ public class Comanda {
 	}
 
 	/**
+	 * Obtenir client de la comanda
 	 * @return the client
 	 */
 	public Client getClient() {
@@ -51,6 +98,7 @@ public class Comanda {
 	}
 
 	/**
+	 * Obtenir client de la comanda
 	 * @return the model
 	 */
 	public Model getModel() {
@@ -66,6 +114,7 @@ public class Comanda {
 	}
 
 	/**
+	 * Obtenir client de la comanda
 	 * @return the tipusPagament
 	 */
 	public Pagament getTipusPagament() {
@@ -80,20 +129,10 @@ public class Comanda {
 		this.tipusPagament = tipusPagament;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Comanda [id=" + id + ", adreçaEnvio=" + adreçaEnvio
-				+ ", client=" + client + ", model=" + model
-				+ ", tipusPagament=" + tipusPagament + ", estat=" + estat
-				+ ", empleat=" + empleat + "]";
-	}
+	
 
 	/**
+	 * Obtenir client de la comanda
 	 * @return the estat
 	 */
 	public Estat getEstat() {
@@ -109,6 +148,7 @@ public class Comanda {
 	}
 
 	/**
+	 * Obtenir client de la comanda
 	 * @return the empleat
 	 */
 	public Empleat getEmpleat() {
@@ -122,13 +162,35 @@ public class Comanda {
 	public void setEmpleat(Empleat empleat) {
 		this.empleat = empleat;
 	}
-
+	
+	/**
+	 * Obtenir client de la comanda
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
-
+	
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Comanda [id=" + id + ", adreçaEnvio=" + adreçaEnvio
+				+ ", client=" + client + ", model=" + model
+				+ ", tipusPagament=" + tipusPagament + ", estat=" + estat
+				+ ", empleat=" + empleat + "]";
 	}
 
 }
