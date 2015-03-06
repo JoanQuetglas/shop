@@ -46,7 +46,7 @@ public class Gestor {
 		crearModel(
 				"Processador Intel core I3,Placa base Intel TR, Targeta grafica Geforece G700",
 				"M090S", 760);
-		
+		assignarTreball();
 		
 	}
  
@@ -57,47 +57,29 @@ public class Gestor {
 	 * @return
 	 */
 
-	public boolean assignarTreball() {
-		boolean assignacio = false;
-		while (!comandesPendents.isEmpty() && !empleatsLliures.isEmpty()) {
-			if (comandesAturades.isEmpty()) {
-				Empleat empleat = empleatsLliures.remove();
-				empleat.setDisponibilitat(false);
-				Comanda comanda = comandesPendents.remove();
-				comanda.setEstat(Estat.ENPROCES);
-				comanda.setEmpleat(empleat);
-				assignacio = true;
-			}else{
-				Empleat empleat = empleatsLliures.remove();
-				empleat.setDisponibilitat(false);
-				Comanda comanda = comandesAturades.remove();
-				comanda.setEstat(Estat.ENPROCES);
-				comanda.setEmpleat(empleat);
-				assignacio = true;
-			}
-		}
-		return assignacio;
-	}
-	public boolean assignarTreball2(){
-
-		while(!empleatsLliures.isEmpty()){
+	
+	public boolean assignarTreball(){
+		boolean assignacio=false;
+		if(!comandesPendents.isEmpty() || !comandesAturades.isEmpty()){
+		while(!empleatsLliures.isEmpty() && !comandesPendents.isEmpty() || !comandesAturades.isEmpty()){
 			if(!comandesAturades.isEmpty()){
 				Empleat e = empleatsLliures.removeFirst();
 				Comanda c = comandesAturades.removeFirst();
 				e.setDisponibilitat(false);
 				c.setEstat(Estat.ENPROCES);
 				c.setEmpleat(e);
-				return true;
+				assignacio = true;
 			}else if(!comandesPendents.isEmpty()){
 				Empleat e = empleatsLliures.removeFirst();
 				Comanda c = comandesPendents.removeFirst();
 				e.setDisponibilitat(false);
 				c.setEstat(Estat.ENPROCES);
 				c.setEmpleat(e);
-				return true;
+				assignacio = true;
 			}
 		}
-		return false;
+		}
+		return assignacio;
 	}
 	
 	public boolean canviarEstatComanda(Estat tipus, int id) {
@@ -116,7 +98,7 @@ public class Gestor {
 					comanda.getEmpleat().setDisponibilitat(true);
 					empleatsLliures.add(comanda.getEmpleat()); //acabat
 					comanda.setEmpleat(null);
-					assignarTreball2();
+					assignarTreball();
 					return true;
 				case FINALITZADA:
 					comanda.setEstat(Estat.FINALITZADA);
@@ -197,8 +179,9 @@ public class Gestor {
 							idComandes++;
 							Comanda novaComanda = new Comanda(idComandes,
 									client, model);
-							comandesPendents.add(novaComanda);
+							
 							comandes.add(novaComanda);
+							comandesPendents.add(novaComanda);
 							assignarTreball();
 							return true;
 						}
@@ -215,7 +198,7 @@ public class Gestor {
 			Empleat nouEmpleat = new Empleat(nom, dni);
 			llistaEmpleats.add(nouEmpleat);
 			empleatsLliures.add(nouEmpleat);
-			assignarTreball();
+			//assignarTreball();
 			return true;
 		} else {
 			for (Empleat a : llistaEmpleats) {
@@ -248,9 +231,7 @@ public class Gestor {
 		return false;
 	}
 
-	public boolean modificarComanda() {
-		return true;
-	}
+	
 
 	/**
 	 * @return the comandesPendents
@@ -367,7 +348,7 @@ public class Gestor {
 
 	}
 
-	public boolean mostrarComandesSenseAssignar() {
+	public boolean mostrarComandesSenseAssignar() { //malament
 		if (!comandesPendents.isEmpty() && !comandesAturades.isEmpty()) {
 			getComandesPendents();
 			getComandesAturades();
@@ -382,7 +363,7 @@ public class Gestor {
 		return false;
 	}
 
-	public boolean mostraComandesAturadesPendentsDePeces() {
+	public boolean mostraComandesAturadesPendentsDePeces() { //malament
 		if (!comandesAturades.isEmpty()) {
 			getComandesAturades();
 			return true;
@@ -400,4 +381,20 @@ public class Gestor {
 		return false;
 	}
 
+	public Comanda tornarComandesClient(String nom , String contrasenya){ //acabar
+		
+		for (Client client : llistaClients) {
+			if (nom == client.getNom() && contrasenya == client.getContrasenya()){
+				for(Comanda com : comandes ){
+					if(client == com.getClient()){
+						
+					}
+				}
+				
+				
+			}
+				
+			}
+		return null;
+	}
 }
