@@ -13,9 +13,9 @@ public class Proves {
 		Gestor m = new Gestor();
 		m.inicialitzacio();
 		m.crearComanda("46808932Z", "M090S", "4563");
-		boolean a=m.crearComanda("48971680T", "M095Z", "hola");
-		System.out.println(a);
-		m.menu();	
+		m.crearComanda("48971680T", "M095Z", "hola");
+		m.menu();
+		
 		
 	}
 

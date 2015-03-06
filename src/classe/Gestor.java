@@ -426,18 +426,24 @@ public class Gestor {
 
 	public ArrayList<Comanda> tornarComandesClient(String dni) {
 		ArrayList<Comanda> comandesClient = new ArrayList<Comanda>();
-		for (Client client : llistaClients) {
-			if (dni == client.getDni()) {
+		//for (Client client : llistaClients) {
+			
 				for (Comanda comanda : comandes) {
-					if (client == comanda.getClient()) {
+					if (dni.equalsIgnoreCase(comanda.getClient().getDni())) {
+					
 						comandesClient.add(comanda);
-					}
+					
 				}
-				return comandesClient;
-
+				
 			}
-		}
-		return null;
+		//}
+				if(comandesClient.size()>0){
+				return comandesClient;
+				}else{
+					return null;
+				}
+
+		
 	}
 	/**
 	 * Retorna l'empleat que ha realitzat una comanda la qual tenim el seu id
