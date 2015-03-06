@@ -436,14 +436,15 @@ public class Gestor {
 	}
 	
 	public void menu(){
-		Gestor p = new Gestor();
+		
+		LlegirTeclat p = new LlegirTeclat();
 		System.out.println("1- Veure les comandes sense asignar");
 		System.out.println("2- Comandes pendents de peces");
-		System.out.println("3- ");
-		System.out.println("4-");
+		System.out.println("3- Compres d'un client");
+		System.out.println("4- Models disponibles");
 		
 		System.out.println("----------------------------------------------");
-		int value =LlegirTeclat.llegirSencer("Introdueix una opció: ");
+		int value =p.llegirSencer("Introdueix una opció: ");
 
 		if (value == 1) {
 			System.out
@@ -454,7 +455,8 @@ public class Gestor {
 					.println("*** Has seleccionat 'Veure les comandes sense asignar' ***");
 			System.out
 					.println("**********************************************************");
-			System.out.println(p.mostrarComandesSenseAssignar());
+			
+			System.out.println(mostrarComandesSenseAssignar());
 			
 
 		} else if (value == 2) {
@@ -466,7 +468,8 @@ public class Gestor {
 					.println("******Has seleccionat 'Comandes pendents de peces'******");
 			System.out
 					.println("********************************************************");
-			System.out.println(p.mostraComandesAturadesPendentsDePeces());
+			
+			System.out.println(mostraComandesAturadesPendentsDePeces());
 
 		} else if (value == 3) {
 			System.out
@@ -474,14 +477,27 @@ public class Gestor {
 			System.out
 					.println("********************************************************");
 			System.out
-					.println("***Has seleccionat opcio 3.***");
+					.println("***Has seleccionat 'Compres d'un client'***");
 			System.out
 					.println("********************************************************");
-			System.out.println(p.tornarComandesClient(LlegirTeclat.llegirSencer(prompt)
+			String value3 =p.llegirCadena("Introdueix el DNI: ");
+			
+			System.out.println(tornarComandesClient(value3));
 
 
 		} else if (value == 4) {
-			System.out.println("sortint...");
+			System.out
+					.println("-------------------------------------------------------");
+			System.out
+					.println("********************************************************");
+			System.out
+					.println("******Has seleccionat 'Models disponibles'******");
+			System.out
+					.println("********************************************************");
+			String value4 =p.llegirCadena("Com vols ordenar els models[nom o preu]: ");
+			
+			System.out.println(modelDisponibles(value4));
+					
 
 		} else {
 			System.out.println("No es un nombre valid!");
