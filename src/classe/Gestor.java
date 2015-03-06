@@ -6,7 +6,15 @@ import utilitats.Estat;
 import utilitats.TipusPagaments;
 
 public class Gestor {
+	
+	/**
+	 * Conte totes les comandes pendent
+	 */
 	private ArrayDeque<Comanda> comandesPendents;
+	
+	/**
+	 * Conte totes les comandes aturades
+	 */
 	private ArrayDeque<Comanda> comandesAturades;
 	private ArrayDeque<Empleat> empleatsLliures;
 	private ArrayList<Comanda> comandes;
@@ -411,11 +419,11 @@ public class Gestor {
 			System.out
 					.println("-------------------------------------------------------");
 			System.out
-					.println("*******************************************************");
+					.println("**********************************************************");
 			System.out
 					.println("*** Has seleccionat 'Veure les comandes sense asignar' ***");
 			System.out
-					.println("*******************************************************");
+					.println("**********************************************************");
 			System.out.println(p.mostrarComandesSenseAssignar());
 			
 
@@ -423,11 +431,11 @@ public class Gestor {
 			System.out
 					.println("-------------------------------------------------------");
 			System.out
-					.println("*******************************************************");
+					.println("********************************************************");
 			System.out
-					.println("***Has seleccionat opcio 2.***");
+					.println("******Has seleccionat 'Comandes pendents de peces'******");
 			System.out
-					.println("*******************************************************");
+					.println("********************************************************");
 			System.out.println(p.mostraComandesAturadesPendentsDePeces());
 
 		} else if (value == 3) {
@@ -439,7 +447,7 @@ public class Gestor {
 					.println("***Has seleccionat opcio 3.***");
 			System.out
 					.println("********************************************************");
-			
+			System.out.println(p.tornarComandesClient(null, null));
 
 
 		} else if (value == 4) {
