@@ -15,8 +15,6 @@ public class Pagament {
 		return tipus;
 	}
 
-	
-	
 	public void setTipus(TipusPagaments tipus) {
 		this.tipus = tipus;
 	}
@@ -90,8 +88,6 @@ public class Pagament {
 	public String toString() {
 		return "Pagament [tipus=" + tipus + "]";
 	}
-
-
 
 	/**
 	 * @param tipus

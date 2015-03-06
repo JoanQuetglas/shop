@@ -1,6 +1,5 @@
 package prova;
 
-
 import utilitats.Estat;
 import utilitats.TipusPagaments;
 import classe.Client;
@@ -22,5 +21,4 @@ public class Proves {
 
 >>>>>>> branch 'master' of https://github.com/JoanQuetglas/shop.git
 	}
-
 }
