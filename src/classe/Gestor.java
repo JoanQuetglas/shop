@@ -2,6 +2,8 @@ package classe;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+
+import menu.LlegirTeclat;
 import utilitats.Estat;
 import utilitats.TipusPagaments;
 
@@ -413,7 +415,7 @@ public class Gestor {
 		System.out.println("4-");
 		
 		System.out.println("----------------------------------------------");
-		int value = menu.LlegirTeclat.llegirSencer("Introdueix una opció: ");
+		int value =LlegirTeclat.llegirSencer("Introdueix una opció: ");
 
 		if (value == 1) {
 			System.out
