@@ -352,11 +352,11 @@ public class Gestor {
 
 	/**
 	 * Afegir pagament PAYPAL
-	 * 
-	 * @param tipus
-	 * @param ppCompta
-	 * @param ppContrasenya
+	 * @param tipus El tipus de pagament segon la enumeriacio de TipusPagaments
+	 * @param ppCompta	Un String del nom de compta
+	 * @param ppContrasenya	Un string per la contrasenya
 	 */
+
 	public void afegirPagament(String dniClient, TipusPagaments tipus,
 			String ppCompta, int ppContrasenya) {
 		for (Client client : llistaClients) {
@@ -368,6 +368,10 @@ public class Gestor {
 
 	}
 
+	/**
+	 * Mostra totes les comandes que no tenen un empleat que les realitzi
+	 * @return Retorna una arrayList o null si no hi ha cap comanda sense assignar
+	 */
 
 	public ArrayList<Comanda> mostrarComandesSenseAssignar() {
 		ArrayList<Comanda> comandesSenseAsig = new ArrayList<Comanda>();
@@ -384,6 +388,10 @@ public class Gestor {
 		}
 		return null;
 	}
+	/**
+	 * Torna un arraylist que mostra totes les comandes pendents
+	 * @return Retorna l'arraylist o null(si no hi ha comandes aturades)
+	 */
 
 	public ArrayList<Comanda> mostraComandesAturadesPendentsDePeces() {
 		ArrayList<Comanda> comandesAturadesPendents = new ArrayList<Comanda>();
@@ -394,6 +402,12 @@ public class Gestor {
 			return null;
 		}
 	}
+	/**
+	 * Si un client vol canviar la seva adreça ha de utilitzar aquest mètode on només s'ha d'identificar i ficar la nova adreça
+	 * @param dniClient S'utilitza per cercar i corroborar l'existencia del client
+	 * @param adreça La nova adreça del client
+	 * @return Retorna un boolea true si s'ha pogut canviar l'adreça i false si no
+	 */
 
 	public boolean afegirAdreça(String dniClient, String adreça) {
 		for (Client client : llistaClients) {
@@ -404,6 +418,11 @@ public class Gestor {
 		}
 		return false;
 	}
+	/**
+	 * Torna un arraylist que conté totes les comandes que ha sol·licitat
+	 * @param dni S'utilitza per cercar i corroborar l'exitencia del client
+	 * @return torna L'arraylist de les comandes que ha sol·licitat el client o null si no té cap comanda
+	 */
 
 	public ArrayList<Comanda> tornarComandesClient(String dni) {
 		ArrayList<Comanda> comandesClient = new ArrayList<Comanda>();
@@ -420,7 +439,11 @@ public class Gestor {
 		}
 		return null;
 	}
-
+	/**
+	 * Retorna l'empleat que ha realitzat una comanda la qual tenim el seu id
+	 * @param id L'utilitzam per trobar la comanda 
+	 * @return Retorna l'empleat que ha realitzat la comanda o null si està pendent i no té cap empleat que la realitzi
+	 */
 	public Empleat tornarEmpleatRealitzaComanda(int id) {
 		for (Comanda comanda : comandes) {
 			if (id == comanda.getId()) {
