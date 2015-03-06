@@ -42,7 +42,7 @@ public class Gestor {
 	public void inicialitzacio() {
 		crearClient("Josep", "Morey", "48971680T", "hola");
 		crearClient("Joan", "Quetglas", "46808932Z", "4563");
-
+		crearClient("Toni","Marti","56824389M","7896");
 		crearEmpleat("Francesc", "59681391Z");
 		crearEmpleat("Toni", "47839258S");
 		crearEmpleat("Joan", "44335566F");
@@ -56,7 +56,6 @@ public class Gestor {
 		crearModel(
 				"Processador Intel core I3,Placa base Intel TR, Targeta grafica Geforece G700",
 				"M090S", 760);
-		assignarTreball();
 		
 	}
  
@@ -91,6 +90,13 @@ public class Gestor {
 		}
 		return assignacio;
 	}
+	
+	/**
+	 * Canvia l'estat de la comanda.
+	 * @param tipus
+	 * @param id
+	 * @return Vertader si s'ha completat i si no fals 
+	 */
 	
 	public boolean canviarEstatComanda(Estat tipus, int id) {
 		for (Comanda comanda : comandes) {
@@ -208,7 +214,7 @@ public class Gestor {
 			Empleat nouEmpleat = new Empleat(nom, dni);
 			llistaEmpleats.add(nouEmpleat);
 			empleatsLliures.add(nouEmpleat);
-			//assignarTreball();
+			assignarTreball();
 			return true;
 		} else {
 			for (Empleat a : llistaEmpleats) {
