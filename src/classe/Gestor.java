@@ -421,7 +421,7 @@ public class Gestor {
 	/**
 	 * Torna un arraylist que conté totes les comandes que ha sol·licitat
 	 * @param dni S'utilitza per cercar i corroborar l'exitencia del client
-	 * @return torna L'arraylist de les comandes que ha sol·licitat el client o null si no té cap comanda
+	 * @return L'arraylist de les comandes que ha sol·licitat el client o null si no té cap comanda
 	 */
 
 	public ArrayList<Comanda> tornarComandesClient(String dni) {
@@ -442,7 +442,7 @@ public class Gestor {
 	/**
 	 * Retorna l'empleat que ha realitzat una comanda la qual tenim el seu id
 	 * @param id L'utilitzam per trobar la comanda 
-	 * @return Retorna l'empleat que ha realitzat la comanda o null si està pendent i no té cap empleat que la realitzi
+	 * @return L'empleat que ha realitzat la comanda o null si està pendent i no té cap empleat que la realitzi
 	 */
 	public Empleat tornarEmpleatRealitzaComanda(int id) {
 		for (Comanda comanda : comandes) {
@@ -459,9 +459,12 @@ public class Gestor {
 		if(tipusOrdenacio.equalsIgnoreCase("nom")){
 			Collections.sort(cataleg, nom);
 			return cataleg;
-		}else if(tipusOrdenacio.equalsIgnoreCase("preu"))
+		}else if(tipusOrdenacio.equalsIgnoreCase("preu")){
 			Collections.sort(cataleg, preu);
 			return cataleg;
+		}else{
+			return null;
+		}
 	}
 	
 	public void menu(){
