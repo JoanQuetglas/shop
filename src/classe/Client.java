@@ -46,6 +46,7 @@ public class Client {
 	}
 
 	/**
+	 * Obtenir nom del client
 	 * @return the nom
 	 */
 	public String getNom() {
@@ -53,7 +54,7 @@ public class Client {
 	}
 
 	/**
-	 * Modificar
+	 * Modificar nom del client
 	 * @param nom
 	 */
 	public void setNom(String nom) {
@@ -61,6 +62,7 @@ public class Client {
 	}
 
 	/**
+	 * Obtenir cognoms del client
 	 * @return the cognoms
 	 */
 	public String getCognoms() {
@@ -68,14 +70,15 @@ public class Client {
 	}
 
 	/**
+	 * Modificar cognoms del client
 	 * @param cognoms
-	 *            the cognoms to set
 	 */
 	public void setCognoms(String cognoms) {
 		this.cognoms = cognoms;
 	}
 
 	/**
+	 * Obtenir dni del client
 	 * @return the dni
 	 */
 	public String getDni() {
@@ -83,14 +86,15 @@ public class Client {
 	}
 
 	/**
+	 * Modificar dni del client
 	 * @param dni
-	 *            the dni to set
 	 */
 	public void setDni(String dni) {
 		this.dni = dni;
 	}
 
 	/**
+	 * Obtenir adreça del client
 	 * @return the adreça
 	 */
 	public String getAdreça() {
@@ -98,14 +102,15 @@ public class Client {
 	}
 
 	/**
+	 * Modificar adreça del client
 	 * @param adreça
-	 *            the adreça to set
 	 */
 	public void setAdreça(String adreça) {
 		this.adreça = adreça;
 	}
 
 	/**
+	 * Obtenir pagament Predeterminat del client
 	 * @return the pagamentPredeterminat
 	 */
 	public Pagament getPagamentPredeterminat() {
@@ -113,14 +118,15 @@ public class Client {
 	}
 
 	/**
+	 * Modificar pagament Predeterminat del client
 	 * @param pagamentPredeterminat
-	 *            the pagamentPredeterminat to set
 	 */
 	public void setPagamentPredeterminat(Pagament pagamentPredeterminat) {
 		this.pagamentPredeterminat = pagamentPredeterminat;
 	}
 
 	/**
+	 * Obtenir contrasenya del client
 	 * @return the contrasenya
 	 */
 	public String getContrasenya() {
@@ -128,13 +134,16 @@ public class Client {
 	}
 
 	/**
+	 * Modificar contrasenya del client
 	 * @param contrasenya
-	 *            the contrasenya to set
 	 */
 	public void setContrasenya(String contrasenya) {
 		this.contrasenya = contrasenya;
 	}
-
+	
+	/**
+	 * Retorna un client [nom, cognoms, dni, adreça, pagament predeterminat]
+	 */
 	@Override
 	public String toString() {
 		return "Client [nom=" + nom + ", cognoms=" + cognoms + ", dni=" + dni
