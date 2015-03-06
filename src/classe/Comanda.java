@@ -5,37 +5,37 @@ import utilitats.Estat;
 public class Comanda {
 	
 	/**
-	 * identificador de la comanda
+	 * Identificador de la comanda
 	 */
 	private int id;
 	
 	/**
-	 * adreça Envio de la comanda
+	 * Adreça Envio de la comanda
 	 */
 	private String adreçaEnvio;
 	
 	/**
-	 * client que fa la comanda
+	 * Client que fa la comanda
 	 */
 	private Client client;
 	
 	/**
-	 * model de la comanda
+	 * Model de la comanda
 	 */
 	private Model model;
 	
 	/**
-	 * tipus de Pagament per la comanda [PAYPAL, VISA, TRANSFERENCIA, CONTRAREMBOLS]
+	 * Tipus de Pagament per la comanda [PAYPAL, VISA, TRANSFERENCIA, CONTRAREMBOLS]
 	 */
 	private Pagament tipusPagament;
 	
 	/**
-	 * estat de la comanda [ENPROCES, FINALITZADA, ATURADA, PENDENT]
+	 * Estat de la comanda [ENPROCES, FINALITZADA, ATURADA, PENDENT]
 	 */
 	private Estat estat;
 	
 	/**
-	 * empleat que s'encarrega de la comanda
+	 * Empleat que s'encarrega de la comanda
 	 */
 	private Empleat empleat;
 	
